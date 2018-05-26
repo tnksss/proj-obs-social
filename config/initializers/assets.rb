@@ -14,4 +14,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( session.scss )
+Rails.application.config.assets.precompile += %w( dashboard.scss )
+Rails.application.config.assets.precompile += %w( dist/css/AmindLte.css )
+Rails.application.config.assets.precompile += %w( dist/css/skins/skin-green.css )
+Rails.application.config.assets.precompile += %w( dashboard.js )
+
+
+
 
