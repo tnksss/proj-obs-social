@@ -1,21 +1,21 @@
 default: &default
   adapter: postgresql
   encoding: utf8
-  username: postgres
-  password: postgres
+  username: your_username
+  password: your_password
   host: localhost
 
 development:
   <<: *default
-  database: proj_obs_social_development
+  database: your_database_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: proj_obs_social_test
+  database: your_database_test
 
 production:
   <<: *default
-  database: proj_obs_social_production
+  database: your_database_production
