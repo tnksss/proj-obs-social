@@ -1,15 +1,201 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjObsSocial</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PrevClass</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   </head>
+  <body class="hold-transition skin-yellow sidebar-mini ">
 
-  <body>
-    <%= yield %>
-  </body>
+  <div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+  <!-- Logo -->
+  <a href="http://localhost:8000/admin" class="logo">
+  <!-- mini logo for sidebar mini 50x50 pixels -->
+  <span class="logo-mini"><b>P</b>C</span>
+  <!-- logo for regular state and mobile devices -->
+  <span class="logo-lg"><b>Prev</b>Class</span>
+  </a>
+
+  <!-- Header Navbar -->
+  <nav class="navbar navbar-static-top" role="navigation">
+  <!-- Sidebar toggle button-->
+  <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+  <span class="sr-only">Trocar navegação</span>
+  </a>
+  <!-- Navbar Right Menu -->
+  <div class="navbar-custom-menu">
+
+  <ul class="nav navbar-nav">
+  <li>
+  <a href="#"
+  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+  >
+  <i class="fa fa-fw fa-power-off"></i> Sair
+  </a>
+  <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">
+  <input type="hidden" name="_token" value="4UWni5fIsuPvrwplr4LMmKpCmsJxooiIX2Mogv6s">
+  </form>
+  </li>
+  </ul>
+  </div>
+  </nav>
+  </header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+  <!-- Sidebar Menu -->
+  <ul class="sidebar-menu" data-widget="tree">
+  <li class="header">ESTRUTURA</li>
+  <li class="treeview">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-home "></i>
+  <span>Unidade</span>
+  <span class="pull-right-container">
+  <i class="fa fa-angle-left pull-right"></i>
+  </span>
+  </a>
+  <ul class="treeview-menu">
+  <li class="">
+  <a href="http://localhost:8000/admin/unities"
+  >
+  <i class="fa fa-fw fa-plus "></i>
+  <span>Lista de Unidades</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-users "></i>
+  <span>Usuários</span>
+  </a>
+  </li>
+  </ul>
+  </li>
+  <li class="treeview">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-table "></i>
+  <span>Grade</span>
+  <span class="pull-right-container">
+  <i class="fa fa-angle-left pull-right"></i>
+  </span>
+  </a>
+  <ul class="treeview-menu">
+  <li class="">
+  <a href="http://localhost:8000/admin/courses"
+  >
+  <i class="fa fa-fw fa-circle-o "></i>
+  <span>Cursos</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-circle-o "></i>
+  <span>Disciplinas</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-circle-o "></i>
+  <span>Turnos</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-circle-o "></i>
+  <span>Turmas</span>
+  </a>
+  </li>
+  </ul>
+  </li>
+  <li class="header">PROFESSORES</li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-plus "></i>
+  <span>Cadastro</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-circle-o "></i>
+  <span>Incluir disciplina</span>
+  </a>
+  </li>
+  <li class="header">ALUNOS</li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-plus "></i>
+  <span>Cadastro</span>
+  </a>
+  </li>
+  <li class="header">MATRÍCULAS</li>
+  <li class="">
+  <a href="#"
+  >
+  <i class="fa fa-fw fa-circle-o "></i>
+  <span>Incluir matrícula</span>
+  </a>
+  </li>
+  <li class="header">CONFIG DA CONTA</li>
+  <li class="">
+  <a href="http://localhost:8000/admin/settings"
+  >
+  <i class="fa fa-fw fa-user "></i>
+  <span>Profile</span>
+  </a>
+  </li>
+  <li class="">
+  <a href="http://localhost:8000/admin/settings"
+  >
+  <i class="fa fa-fw fa-lock "></i>
+  <span>Change Password</span>
+  </a>
+  </li>
+  </ul>
+  <!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+  <h1>Dashboard</h1>
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+  <p>You are logged in!</p>
+
+  </section>
+  <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  </div>
+  <!-- ./wrapper -->
+
+</body>
 </html>
+
