@@ -13,8 +13,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'pg', '0.18.4'
-
-
+gem 'simple_form'
+gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -25,7 +25,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'binding_of_caller' 
 end
 
 group :test do
