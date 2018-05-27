@@ -1,35 +1,38 @@
 <p id="notice"><%= notice %></p>
+<div class="box">
+  <div class="box-header">
+    <h1>Sessions</h1>
+    <%= link_to 'New Session', new_session_path, class: "btn btn-info" %>
+  </div>
+  <div class="box-content">
+    <table class="table table-hover table-bordered table-striped">
+      <thead class="">
+        <tr>
+          <th>Date</th>
+          <th>Start session</th>
+          <th>End session</th>
+          <th>Note</th>
+          <th colspan="3">Ações</th>
+        </tr>
+      </thead>
 
-<h1>Sessions</h1>
+      <tbody>
+        <% @sessions.each do |session| %>
+          <tr>
+            <td><%= session.date.strftime('%d/%m/%Y') %></td>
+            <td><%= session.start_session.to_time.strftime('%H:%M') %></td>
+            
+            <td><%= session.end_session.to_time.strftime('%H:%M') %></td>
+            <td><%= session.note %></td>
+            
+            <td><%= link_to '', session, class: "btn btn-warning fa fa-search" %></td>
+            <td><%= link_to '', edit_session_path(session), class:"btn btn-info fa fa-edit"%></td>
+            <td><%= link_to '', session, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger fa fa-remove"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<table class="table table-hover table-bordered">
-  <thead class="">
-    <tr>
-      <th>Date</th>
-      <th>Start session</th>
-      <th>End session</th>
-      <th>Note</th>
-      <th colspan="3">Ações</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sessions.each do |session| %>
-      <tr>
-        <td><%= session.date.strftime('%d/%m/%Y') %></td>
-        <td><%= session.start_session.to_time.strftime('%H:%M') %></td>
-        
-        <td><%= session.end_session.to_time.strftime('%H:%M') %></td>
-        <td><%= session.note %></td>
-        
-        <td><%= link_to '', session, class: "btn btn-warning fa fa-search" %></td>
-        <td><%= link_to '', edit_session_path(session), class:"btn btn-info fa fa-edit"%></td>
-        <td><%= link_to '', session, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger fa fa-remove"%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Session', new_session_path %>
+  

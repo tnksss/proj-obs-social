@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<% provide(:head_title, "Vereadores") %>
-<%= link_to 'Adicionar Vereador', new_councilman_path , class: "btn btn-info"%>
-<table class="table table-striped">
-  <thead >
+
+<div class="box">
+  <div class="box-header">
+    <h1>Vereadores</h1>
+    <%= link_to 'Adicionar Vereador', new_councilman_path, class: "btn btn-info" %>
+  </div>
+  <div class="box-content">
+  <table class="table table-hover table-bordered table-striped">
+    <thead >
     <tr>
       <th>Nome</th>
       <th>Apelido</th>
@@ -20,14 +25,13 @@
         <td><%= councilman.nickname %></td>
         <td><%= councilman.political_party %></td>
         <td><%= councilman.political_position %></td>
-        <td><%= link_to ' Exibir', councilman, class: "fa fa-search btn btn-info" %></td>
-        <td><%= link_to ' Editar', edit_councilman_path(councilman), class: "fa fa-edit btn btn-warning" %></td>
-        <td><%= link_to ' Deletar', councilman, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-remove btn btn-danger" %></td>
+        <td><%= link_to '', councilman, class: "fa fa-search btn btn-info" %></td>
+        <td><%= link_to '', edit_councilman_path(councilman), class: "fa fa-edit btn btn-warning" %></td>
+        <td><%= link_to '', councilman, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-remove btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
+</div>
+</div>
 
