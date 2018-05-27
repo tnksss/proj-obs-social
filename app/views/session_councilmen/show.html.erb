@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @session_councilman.session %>
+</p>
+
+<p>
+  <strong>Councilman:</strong>
+  <%= @session_councilman.councilman %>
+</p>
+
+<p>
+  <strong>Arrival:</strong>
+  <%= @session_councilman.arrival %>
+</p>
+
+<p>
+  <strong>Leaving:</strong>
+  <%= @session_councilman.leaving %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @session_councilman.note %>
+</p>
+
+<%= link_to 'Edit', edit_session_councilman_path(@session_councilman) %> |
+<%= link_to 'Back', session_councilmen_path %>

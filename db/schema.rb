@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_27_012050) do
+ActiveRecord::Schema.define(version: 2018_05_27_014113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,39 @@ ActiveRecord::Schema.define(version: 2018_05_27_012050) do
     t.integer "political_position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "project_kinds", force: :cascade do |t|
+    t.string "kind"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "session_id"
+    t.string "name"
+    t.text "description"
+    t.bigint "project_kind_id"
+    t.time "start_project"
+    t.time "end_project"
+    t.integer "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_kind_id"], name: "index_projects_on_project_kind_id"
+    t.index ["session_id"], name: "index_projects_on_session_id"
+  end
+
+  create_table "session_councilmen", force: :cascade do |t|
+    t.bigint "session_id"
+    t.bigint "councilman_id"
+    t.time "arrival"
+    t.time "leaving"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["councilman_id"], name: "index_session_councilmen_on_councilman_id"
+    t.index ["session_id"], name: "index_session_councilmen_on_session_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -59,4 +92,20 @@ ActiveRecord::Schema.define(version: 2018_05_27_012050) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "councilman_id"
+    t.integer "vote"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["councilman_id"], name: "index_votes_on_councilman_id"
+    t.index ["project_id"], name: "index_votes_on_project_id"
+  end
+
+  add_foreign_key "projects", "project_kinds"
+  add_foreign_key "projects", "sessions"
+  add_foreign_key "session_councilmen", "councilmen"
+  add_foreign_key "session_councilmen", "sessions"
+  add_foreign_key "votes", "councilmen"
+  add_foreign_key "votes", "projects"
 end

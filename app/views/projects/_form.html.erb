@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :session %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.association :project_kind %>
+    <%= f.input :start_project %>
+    <%= f.input :end_project %>
+    <%= f.input :result %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

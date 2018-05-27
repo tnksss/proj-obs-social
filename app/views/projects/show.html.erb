@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @project.session %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Project kind:</strong>
+  <%= @project.project_kind %>
+</p>
+
+<p>
+  <strong>Start project:</strong>
+  <%= @project.start_project %>
+</p>
+
+<p>
+  <strong>End project:</strong>
+  <%= @project.end_project %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @project.result %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
