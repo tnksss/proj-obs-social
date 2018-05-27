@@ -35,7 +35,7 @@
           <li class="treeview">
             <a href="#">
               <i class="fa fa-fw fa-table "></i>
-              <span>Grade</span>
+              <span>Teste</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -44,41 +44,35 @@
               <li class="">
                 <a href="http://localhost:8000/admin/courses">
                   <i class="fa fa-fw fa-circle-o "></i>
-                  <span>Cursos</span>
+                  <span>teste 1</span>
                 </a>
               </li>
               <li class="">
                 <a href="#">
                   <i class="fa fa-fw fa-circle-o "></i>
-                  <span>Disciplinas</span>
+                  <span>Teste 2</span>
                 </a>
               </li>
               <li class="">
                 <a href="#">
                   <i class="fa fa-fw fa-circle-o "></i>
-                  <span>Turnos</span>
+                  <span>Teste 3</span>
                 </a>
               </li>
               <li class="">
                 <a href="#">
                   <i class="fa fa-fw fa-circle-o "></i>
-                  <span>Turmas</span>
+                  <span>Teste 4</span>
                 </a>
               </li>
             </ul>
           </li>
           <li class="header">CONFIG DA CONTA</li>
-          <li class="">
-            <a href="http://localhost:8000/admin/settings">
+          <li>
+            <%= link_to edit_user_registration_path do%>
               <i class="fa fa-fw fa-user "></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="http://localhost:8000/admin/settings">
-              <i class="fa fa-fw fa-lock "></i>
-              <span>Change Password</span>
-            </a>
+              <span>Perfil</span>
+            <% end%>
           </li>
         </ul>
         <!-- /.sidebar-menu -->
