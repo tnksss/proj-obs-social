@@ -1,16 +1,14 @@
- <% provide(:head_title, "Vereadores") %>
-
 <p id="notice"><%= notice %></p>
 
-<h1>Councilmen</h1>
-
+<% provide(:head_title, "Vereadores") %>
+<%= link_to 'Adicionar Vereador', new_councilman_path , class: "btn btn-info"%>
 <table class="table table-striped">
   <thead >
     <tr>
-      <th>Name</th>
-      <th>Nickname</th>
-      <th>Political party</th>
-      <th>Political position</th>
+      <th>Nome</th>
+      <th>Apelido</th>
+      <th>Partido Politico</th>
+      <th>Posição Politica</th>
       <th colspan="3">Ações</th>
     </tr>
   </thead>
@@ -22,9 +20,9 @@
         <td><%= councilman.nickname %></td>
         <td><%= councilman.political_party %></td>
         <td><%= councilman.political_position %></td>
-        <td><%= link_to 'Show', councilman %></td>
-        <td><%= link_to 'Edit', edit_councilman_path(councilman) %></td>
-        <td><%= link_to 'Destroy', councilman, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to ' Exibir', councilman, class: "fa fa-search btn btn-info" %></td>
+        <td><%= link_to ' Editar', edit_councilman_path(councilman), class: "fa fa-edit btn btn-warning" %></td>
+        <td><%= link_to ' Deletar', councilman, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-remove btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Councilman', new_councilman_path %>
+
