@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_27_005832) do
+ActiveRecord::Schema.define(version: 2018_05_27_012050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2018_05_27_005832) do
     t.string "nickname"
     t.string "political_party"
     t.integer "political_position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "date"
+    t.time "start_session"
+    t.time "end_session"
+    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

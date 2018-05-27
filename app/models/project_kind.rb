@@ -1,0 +1,2 @@
+class ProjectKind < ApplicationRecord
+end

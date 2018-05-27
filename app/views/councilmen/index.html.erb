@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Councilmen</h1>
+
+<table class="table table-striped">
+  <thead >
+    <tr>
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Political party</th>
+      <th>Political position</th>
+      <th colspan="3">Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @councilmen.each do |councilman| %>
+      <tr>
+        <td><%= councilman.name %></td>
+        <td><%= councilman.nickname %></td>
+        <td><%= councilman.political_party %></td>
+        <td><%= councilman.political_position %></td>
+        <td><%= link_to 'Show', councilman %></td>
+        <td><%= link_to 'Edit', edit_councilman_path(councilman) %></td>
+        <td><%= link_to 'Destroy', councilman, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Councilman', new_councilman_path %>

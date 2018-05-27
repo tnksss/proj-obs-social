@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @councilman.name %>
+</p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @councilman.nickname %>
+</p>
+
+<p>
+  <strong>Political party:</strong>
+  <%= @councilman.political_party %>
+</p>
+
+<p>
+  <strong>Political position:</strong>
+  <%= @councilman.political_position %>
+</p>
+
+<%= link_to 'Edit', edit_councilman_path(@councilman) %> |
+<%= link_to 'Back', councilmen_path %>
