@@ -1,0 +1,37 @@
+
+pt-BR:
+  activerecord:
+      models:
+        councilman: Vereador
+        session: Sessão
+        project: Projeto
+        project kind: Tipo do Projeto
+        user: Usuario
+      attributes:
+        councilman:
+          name: "Nome"
+          nickname: "Apelido"
+          political_position: "Posição Partidária"
+          political_party: "Partido Politico"
+        session:
+          date: "Data"
+          start_session: "Inicio da Sessão"
+          end_session: "Final da Sessão"
+          note: "Notas"
+        project:
+          session: "Sessão"
+          name:	"Nome"
+          description: "Descrição"
+          project_kind: "Tipo de Projeto"
+          start_project: "Inicio do Projeto"
+          end_project: "Final do Projeto"
+          result: "Resultado"
+        projeto_kind:
+          kind: "Tipo de Projeto"
+          description: "Descrição do Projeto"
+        user:
+          name: "Nome"
+          email: "Email"
+          password: "Senha"
+          password_confirmation: "Confirmação de senha"
+          remember_me: "Lembre-me"
