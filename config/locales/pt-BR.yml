@@ -43,6 +43,14 @@ pt-BR:
         start_session: "Início da sessão"
         end_session: "Fim da sessão"
         note: "Notas"
+      project:
+        session: "Sessão"
+        name: "Nome"
+        description: "Descrição"
+        project_kind: "Tipo de projeto"
+        start_project: "Início da votação"
+        end_project: "Término da votação"
+        result: "Resultado"
 
     errors:
       messages:
