@@ -7,7 +7,9 @@
     <%= f.association :session %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.association :project_kind %>
+    <%= f.association :project_kind, collection: ProjectKind.order(:kind), prompt: "Escolha o tipo de projeto" %>
+        
+
     <%= f.input :start_project %>
     <%= f.input :end_project %>
     <%= f.input :result %>

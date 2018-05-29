@@ -4,7 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><%= full_title(yield(:head_title)) %></title>
+  <title>
+        <%= full_title(yield(:head_title)) %>
+  </title>
+  
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'dashboard', media: 'all',
         'data-turbolinks-track': 'reload' %>
@@ -25,28 +28,14 @@
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/sidebar'%>
     
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-    
-        <%= yield%>
-      </section>
-
-      <!-- Main content -->
+    <div class="content-wrapper">         
       <section class="content">
-
-
-
-      </section>
-      <!-- /.content -->
+        <h4><%=yield(:head_title)%></h4>      
+      
+        <%= yield%>
+      </section>      
     </div>
-    <!-- /.content-wrapper -->
-
   </div>
-  <!-- ./wrapper -->
-
 </body>
 
 </html>
