@@ -2,17 +2,17 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @session.date %>
+  <%= @session.date.strftime('%d/%m/%Y') %>
 </p>
 
 <p>
   <strong>Start session:</strong>
-  <%= @session.start_session %>
+  <%= @session.start_session.strftime('%H:%M') %>
 </p>
 
 <p>
   <strong>End session:</strong>
-  <%= @session.end_session %>
+  <%= @session.end_session.strftime('%H:%M') %>
 </p>
 <p>
   <strong>Projects: </strong>
@@ -24,5 +24,5 @@
   <%= @session.note %>
 </p>
 
-<%= link_to 'Edit', edit_session_path(@session) %> |
-<%= link_to 'Back', sessions_path %>
+<%= link_to 'Editar', edit_session_path(@session), class: "btn btn-warning" %> |
+<%= link_to 'Voltar', sessions_path, class: "btn btn-default" %>

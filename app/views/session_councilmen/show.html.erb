@@ -2,22 +2,22 @@
 
 <p>
   <strong>Session:</strong>
-  <%= @session_councilman.session %>
+  <%= @session_councilman.session.date.to_time.strftime('%d/%m/%Y') %>
 </p>
 
 <p>
   <strong>Councilman:</strong>
-  <%= @session_councilman.councilman %>
+  <%= @session_councilman.councilman.name %>
 </p>
 
 <p>
   <strong>Arrival:</strong>
-  <%= @session_councilman.arrival %>
+  <%= @session_councilman.arrival.to_time.strftime('%H:%M') %>
 </p>
 
 <p>
   <strong>Leaving:</strong>
-  <%= @session_councilman.leaving %>
+  <%= @session_councilman.leaving.to_time.strftime('%H:%M') %>
 </p>
 
 <p>

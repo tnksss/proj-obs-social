@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
+<%# <p id="notice"><%= notice %>
 
 <p>
   <strong>Session:</strong>
-  <%= @project.session %>
+  <%= @project.session.date.strftime('%d/%m/%Y') %>
 </p>
 
 <p>
@@ -17,17 +17,17 @@
 
 <p>
   <strong>Project kind:</strong>
-  <%= @project.project_kind %>
+  <%= @project.project_kind.kind %>
 </p>
 
 <p>
   <strong>Start project:</strong>
-  <%= @project.start_project %>
+  <%= @project.start_project.strftime('%H:%M') %>
 </p>
 
 <p>
   <strong>End project:</strong>
-  <%= @project.end_project %>
+  <%= @project.end_project.strftime('%H:%M') %>
 </p>
 
 <p>

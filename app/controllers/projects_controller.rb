@@ -29,9 +29,11 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: "Project was successfully created." }
+        flash[:success] = "Pauta criada com sucesso!"
+        format.html { redirect_to @project }
         format.json { render :show, status: :created, location: @project }
       else
+        flash[:error] = "Existem dados incorretos! Por favor verifique."
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -43,9 +45,11 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: "Project was successfully updated." }
+        flash[:success] = "Pauta atualizada com sucesso!"
+        format.html { redirect_to @project }
         format.json { render :show, status: :ok, location: @project }
       else
+        flash[:error] = "Existem dados incorretos! Por favor verifique."
         format.html { render :edit }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
