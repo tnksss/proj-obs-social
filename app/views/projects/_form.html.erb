@@ -4,11 +4,17 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :session %>
+    <%= f.association :session, label_method: :formatted_date, value_method: :id, prompt: "Escolha a data da sessão" %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.association :project_kind, collection: ProjectKind.order(:kind), prompt: "Escolha o tipo de projeto" %>
-        
+    <div class= "form-group">
+      <%= f.association :project_kind, label_method: :kind, value_method: :id, prompt: "Escolha o tipo de projeto" %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+          Novo tipo
+      </button>
+      <%# <%= link_to 'Novo Tipo de pauta', new_project_kind_path, class: "btn btn-info" %>
+    </div>  
 
     <%= f.input :start_project %>
     <%= f.input :end_project %>
@@ -18,4 +24,5 @@
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+  <%= render 'modal'%>
 <% end %>
