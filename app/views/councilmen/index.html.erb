@@ -10,7 +10,7 @@
   <table class="table table-hover table-bordered table-striped">
     <thead >
     <tr>
-      <th>Nome</th>
+      <th>Name</th>
       <th>Apelido</th>
       <th>Partido Politico</th>
       <th>Posição Politica</th>
@@ -21,7 +21,7 @@
   <tbody>
     <% @councilmen.each do |councilman| %>
       <tr>
-        <td><%= councilman.name %></td>
+        <td><%= t(councilman.name)%></td>
         <td><%= councilman.nickname %></td>
         <td><%= councilman.political_party %></td>
         <td><%= councilman.political_position %></td>
