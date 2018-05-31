@@ -20,6 +20,7 @@ pt-BR:
           note: "Notas"
         project:
           session: "Sessão"
+          councilman: "Proposta do Vereador"
           name:	"Nome"
           description: "Descrição"
           project_kind: "Tipo de Projeto"

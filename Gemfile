@@ -15,14 +15,19 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'pg', '0.18.4'
 gem 'simple_form'
-gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
 gem 'devise'
 gem "font-awesome-rails"
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem "font-ionicons-rails"
 
+#Internationalization (I18n)
+gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
+
 #Paginations
 gem 'will_paginate', '~> 3.1.0'
+
+#i18n Helpers
+gem 'i18n_rails_helpers'
 
 
 group :development, :test do
