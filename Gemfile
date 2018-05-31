@@ -19,8 +19,7 @@ gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
 gem 'devise'
 gem "font-awesome-rails"
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-
-
+gem "font-ionicons-rails"
 
 #Paginations
 gem 'will_paginate', '~> 3.1.0'
