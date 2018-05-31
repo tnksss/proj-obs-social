@@ -28,9 +28,11 @@ class CouncilmenController < ApplicationController
 
     respond_to do |format|
       if @councilman.save
-        format.html { redirect_to @councilman, notice: 'Councilman was successfully created.' }
+        flash[:success] = "Novo vereador adicionado!"
+        format.html { redirect_to @councilman }
         format.json { render :show, status: :created, location: @councilman }
       else
+        flash[:error] = "Houve algum problema, reveja os dados inseridos!"
         format.html { render :new }
         format.json { render json: @councilman.errors, status: :unprocessable_entity }
       end
@@ -42,9 +44,11 @@ class CouncilmenController < ApplicationController
   def update
     respond_to do |format|
       if @councilman.update(councilman_params)
-        format.html { redirect_to @councilman, notice: 'Councilman was successfully updated.' }
+        format.html { redirect_to @councilman, notice: "Councilman was successfully updated." }
         format.json { render :show, status: :ok, location: @councilman }
       else
+        flash[:error] = "Houve algum problema, reveja os dados inseridos !"
+
         format.html { render :edit }
         format.json { render json: @councilman.errors, status: :unprocessable_entity }
       end
@@ -56,19 +60,20 @@ class CouncilmenController < ApplicationController
   def destroy
     @councilman.destroy
     respond_to do |format|
-      format.html { redirect_to councilmen_url, notice: 'Councilman was successfully destroyed.' }
+      format.html { redirect_to councilmen_url, notice: "Councilman was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_councilman
-      @councilman = Councilman.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def councilman_params
-      params.require(:councilman).permit(:name, :nickname, :political_party, :political_position)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_councilman
+    @councilman = Councilman.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def councilman_params
+    params.require(:councilman).permit(:name, :nickname, :political_party, :political_position)
+  end
 end
