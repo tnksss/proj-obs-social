@@ -84,15 +84,6 @@ ActiveRecord::Schema.define(version: 2018_05_29_224830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vereadors", force: :cascade do |t|
-    t.string "name"
-    t.string "nickname"
-    t.string "political_party"
-    t.integer "political_position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "votes", force: :cascade do |t|
     t.bigint "project_id"
     t.bigint "councilman_id"
