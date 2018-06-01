@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_224830) do
+ActiveRecord::Schema.define(version: 2018_05_31_195003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2018_05_29_224830) do
     t.integer "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "councilman_id"
+    t.index ["councilman_id"], name: "index_projects_on_councilman_id"
     t.index ["project_kind_id"], name: "index_projects_on_project_kind_id"
     t.index ["session_id"], name: "index_projects_on_session_id"
   end
@@ -84,15 +86,6 @@ ActiveRecord::Schema.define(version: 2018_05_29_224830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vereadors", force: :cascade do |t|
-    t.string "name"
-    t.string "nickname"
-    t.string "political_party"
-    t.integer "political_position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "votes", force: :cascade do |t|
     t.bigint "project_id"
     t.bigint "councilman_id"
@@ -103,6 +96,7 @@ ActiveRecord::Schema.define(version: 2018_05_29_224830) do
     t.index ["project_id"], name: "index_votes_on_project_id"
   end
 
+  add_foreign_key "projects", "councilmen"
   add_foreign_key "projects", "project_kinds"
   add_foreign_key "projects", "sessions"
   add_foreign_key "session_councilmen", "councilmen"

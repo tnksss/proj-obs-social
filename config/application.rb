@@ -9,10 +9,12 @@ Bundler.require(*Rails.groups)
 module ProjObsSocial
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.time_zone = "Brasilia"
+
+    config.time_zone = 'Brasilia'
+
 
     # config.i18n.enforce_available_locales = false
     config.i18n.available_locales = ["pt-BR", :pt, "en", :en]
     config.i18n.default_locale = :pt
-  end
+    end
 end
