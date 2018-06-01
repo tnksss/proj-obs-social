@@ -6,8 +6,10 @@
   <div class="form-inputs">
     <%= f.association :session, label_method: :formatted_date, value_method: :id, prompt: "Escolha a data da sessão" %>
     <%= f.association :councilman, collection: Councilman.order(:name), prompt: "Escolha o vereador" %>
-    <%= f.input :being, collection: SessionCouncilman.beings.keys, prompt: "Participou desta sessão?"%>  
+    <%= f.input :being, collection: SessionCouncilman.translate_enum_collection(:being), prompt: "Participou desta sessão?"%>  
     
+    
+
 
     <%= f.input :arrival %>
     <%= f.input :leaving %>

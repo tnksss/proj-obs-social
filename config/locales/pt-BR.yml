@@ -1,4 +1,4 @@
-pt-BR:
+pt:
   activerecord:
     enums:
       councilman:
@@ -24,6 +24,9 @@ pt-BR:
       ProjectKind:
         one: "Tipo de projeto"
         other: "Tipos de projeto"
+      SessionCouncilman:
+        one: "Vereador na Sessão"
+        other: "Vereadores nas Sessões"
     attributes:
       attribute_commons: &commons
         name: "Nome"
@@ -37,7 +40,10 @@ pt-BR:
         name: "Nome"
         nickname: "Apelido"
         political_party: "Partido"
-        political_position: "Posição Politica"      
+        political_position: "Posição Politica"
+        political_positions:
+          opposition: "Oposição"
+          situation: "Situação"
       session:
         date: "Data"
         start_session: "Início da sessão"
@@ -51,6 +57,21 @@ pt-BR:
         start_project: "Início da votação"
         end_project: "Término da votação"
         result: "Resultado"
+      project_kind:
+        kind: "Tipo"
+        description: "Descrição"
+      session_councilman: 
+        session: "Sessão"
+        councilman: "Vereador"
+        being: "Presença"
+        beings:
+          present: "Presente"
+          absent: "Ausente"
+        arrival: "Horário de Chegada"
+        leaving: "Horário de Saída"
+        note: "Anotações"
+
+
 
     errors:
       messages:
