@@ -29,8 +29,11 @@
     <%= render 'layouts/sidebar'%>
     
     <div class="content-wrapper"> 
-      <%= render 'shared/flash_messages'%>        
+      
+      
+      
       <section class="content">
+        <%= render 'shared/flash_messages'%>        
         <h4><%=yield(:head_title)%></h4>      
       
         <%= yield%>

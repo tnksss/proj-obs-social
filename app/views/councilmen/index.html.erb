@@ -1,6 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="box box-sucess">
   <div class="box-header">
     <h1>Vereadores</h1>
@@ -14,6 +11,7 @@
       <th>Apelido</th>
       <th>Partido Politico</th>
       <th>Posição Politica</th>
+      <th>Projetos</th>
       <th colspan="3">Ações</th>
     </tr>
   </thead>
@@ -21,10 +19,11 @@
   <tbody>
     <% @councilmen.each do |councilman| %>
       <tr>
-        <td><%= t(councilman.name)%></td>
+        <td><%= councilman.name%></td>
         <td><%= councilman.nickname %></td>
         <td><%= councilman.political_party %></td>
         <td><%= councilman.political_position %></td>
+        <td><%= councilman.projects.size%></td>
         <td><%= link_to '', councilman, class: "fa fa-search btn btn-info" %></td>
         <td><%= link_to '', edit_councilman_path(councilman), class: "fa fa-edit btn btn-warning" %></td>
         <td><%= link_to '', councilman, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-remove btn btn-danger" %></td>
