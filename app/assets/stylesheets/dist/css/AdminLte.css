@@ -199,9 +199,15 @@
    border: none;
    min-height: 50px;
    border-radius: 0;
+   height: 50px;
+   padding-top: 0px;
+   padding-bottom: 0px;
+
  }
  .layout-top-nav .main-header .navbar {
    margin-left: 0;
+
+
  }
  .main-header #navbar-search-input.form-control {
    background: rgba(255, 255, 255, 0.2);
@@ -251,6 +257,7 @@
    background-image: none;
    padding: 15px 15px;
    font-family: fontAwesome;
+   height: 50px;
  }
  .main-header .sidebar-toggle:before {
    content: "\f0c9";
