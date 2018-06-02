@@ -8,7 +8,28 @@
 </div>
 
   
+<h4>Avatar vários tamanhos</h4>
+Thumb:
+<% if @councilman.avatar %>
+   <%= image_tag(@councilman.avatar.big) %>
+<%else%>
+  <%= image_tag('fallback/default.png')%>
+<%end%>
 
+Medium:
+<% if @councilman.avatar %>
+   <%= image_tag(@councilman.avatar.big) %>
+<%else%>
+  <%= image_tag('fallback/default.png')%>
+<%end%>
+
+Big:
+<% if @councilman.avatar %>
+   <%= image_tag(@councilman.avatar.big) %>
+<%else%>
+  <%= image_tag('fallback/default.png')%>
+<%end%>
+<hr />
 <p>
   <strong>Nickname:</strong>
   <%= @councilman.nickname %>
