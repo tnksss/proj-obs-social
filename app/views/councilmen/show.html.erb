@@ -1,17 +1,27 @@
 <div class="box">
   <div class="box-header">
+
+  <p><h3>Detalhes do Vereador</h3></p>
+
+  <div class="row">
+  
+  <div class="col-sm-4">
     <p>
-      <strong>Name:</strong>
-      <%= @councilman.name %>
+      
+      <% if @councilman.avatar? %>
+      <%= image_tag(@councilman.avatar.big.url) %>
+    <%else%>
+      <%= gravatar_for(@councilman, 200)%>
+    <%end%>
     </p>
   </div>
-  <div class="box-body">
-  
-<% if @councilman.avatar? %>
-  <%= image_tag(@councilman.avatar.big.url) %>
-<%else%>
-  <%= gravatar_for(@councilman, 200)%><%end%>
-<hr />
+
+  <div class="col-sm-8">
+  <p>
+    <strong>Name:</strong>
+    <%= @councilman.name %>
+  </p>
+
 <p>
   <strong>Nickname:</strong>
   <%= @councilman.nickname %>
@@ -27,10 +37,15 @@
   <%= @councilman.political_position %>
 </p>
 
-<%= link_to 'Edit', edit_councilman_path(@councilman) %> |
-<%= link_to 'Back', councilmen_path %>
-
   </div>
 </div>
+</div>
+</div>
 
+
+<%= link_to 'Edit', edit_councilman_path(@councilman), class: "btn btn-warning" %> |
+<%= link_to 'Back', councilmen_path, class: "btn btn-info" %>
+
+
+  
   

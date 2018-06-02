@@ -4,7 +4,7 @@ class ProjectKindsController < ApplicationController
   # GET /project_kinds
   # GET /project_kinds.json
   def index
-    @project_kinds = ProjectKind.all
+    @project_kinds = ProjectKind.all.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /project_kinds/1
