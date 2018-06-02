@@ -74,6 +74,6 @@ class CouncilmenController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def councilman_params
-    params.require(:councilman).permit(:name, :nickname, :political_party, :political_position)
+    params.require(:councilman).permit(:name, :nickname, :political_party, :political_position, :avatar)
   end
 end
