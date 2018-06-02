@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
   authenticate :user do
+
     root to: "dashboard#index"
-    resources :councilmen
-    resources :sessions
     resources :projects
-    resources :project_kinds
+
+    resources :councilmen do
+      resources :projects
+    end
     resources :session_councilmen
-    resources :votes
+    resources :sessions do
+      resources :session_councilmen
+      resources :projects do
+        resources :votes, except: [:edit, :delete, :update]
+      end
+    end
+    resources :project_kinds    
+    
   end
 end
