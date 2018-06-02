@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2018_06_02_165557) do
 
   create_table "sessions", force: :cascade do |t|
     t.datetime "date"
-    t.time "start_session"
-    t.time "end_session"
+    t.datetime "start_session"
+    t.datetime "end_session"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

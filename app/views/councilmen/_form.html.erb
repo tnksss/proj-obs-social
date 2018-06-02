@@ -7,7 +7,7 @@
     <%= f.input :name %>
     <%= f.input :nickname %>
     <%= f.input :political_party %>
-    <%= f.input :political_position, collection: Councilman.translate_enum_collection(:political_position), prompt: "Informe uma posição"%>  
+    <%= f.input :political_position, collection: Councilman.political_positions.keys, prompt: "Informe uma posição"%>  
     <%= f.label 'Photo' %>
     <%= f.file_field :avatar %>
     

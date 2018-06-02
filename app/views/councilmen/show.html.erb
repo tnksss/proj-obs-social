@@ -1,34 +1,16 @@
 <div class="box">
   <div class="box-header">
-  <p>
-    <strong>Name:</strong>
-    <%= @councilman.name %>
-  </p>
+    <p>
+      <strong>Name:</strong>
+      <%= @councilman.name %>
+    </p>
   </div>
-</div>
-
+  <div class="box-body">
   
-<h4>Avatar vários tamanhos</h4>
-Thumb:
-<% if @councilman.avatar %>
-   <%= image_tag(@councilman.avatar.big) %>
+<% if @councilman.avatar? %>
+  <%= image_tag(@councilman.avatar.big.url) %>
 <%else%>
-  <%= image_tag('fallback/default.png')%>
-<%end%>
-
-Medium:
-<% if @councilman.avatar %>
-   <%= image_tag(@councilman.avatar.big) %>
-<%else%>
-  <%= image_tag('fallback/default.png')%>
-<%end%>
-
-Big:
-<% if @councilman.avatar %>
-   <%= image_tag(@councilman.avatar.big) %>
-<%else%>
-  <%= image_tag('fallback/default.png')%>
-<%end%>
+  <%= gravatar_for(@councilman, 200)%><%end%>
 <hr />
 <p>
   <strong>Nickname:</strong>
@@ -47,3 +29,8 @@ Big:
 
 <%= link_to 'Edit', edit_councilman_path(@councilman) %> |
 <%= link_to 'Back', councilmen_path %>
+
+  </div>
+</div>
+
+  

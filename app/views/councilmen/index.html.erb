@@ -7,6 +7,7 @@
     <table class="table table-bordered table-striped table-hover">
     <thead >
     <tr>
+      <th>Photo</th>
       <th>Name</th>
       <th>Apelido</th>
       <th>Partido Politico</th>
@@ -19,6 +20,12 @@
   <tbody>
     <% @councilmen.each do |councilman| %>
       <tr>
+        <td><% if (councilman.avatar?)%>
+          <%= image_tag(councilman.avatar.thumb.url) %>
+        <%else%>
+        <%= gravatar_for(councilman, 50)%>
+        <%end%>
+        </td>
         <td><%= councilman.name%></td>
         <td><%= councilman.nickname %></td>
         <td><%= councilman.political_party %></td>

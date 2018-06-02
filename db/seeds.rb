@@ -11,6 +11,21 @@
     name: Faker::Name.name,
     nickname: Faker::GameOfThrones.character,
     political_party: Faker::Name.initials,
-    political_position: 0,
+    political_position: 1,
+  }])
+end
+
+5.times do
+  Session.create([{
+    date: Faker::Date.between(30.days.ago, Date.today),
+    start_session: Faker::Time.between(2.days.ago, Date.today, :morning),
+    end_session: Faker::Time.between(2.days.ago, Date.today, :afternoon),
+    note: Faker::Lorem.paragraph(2),
+  }])
+end
+5.times do
+  ProjectKind.create([{
+    kind: Faker::Beer.name,
+    description: Faker::Lorem.paragraph(1),
   }])
 end
