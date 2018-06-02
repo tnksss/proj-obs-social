@@ -5,4 +5,11 @@ class Councilman < ApplicationRecord
   validates :nickname, presence: true
   has_many :projects
   
+  before_save :update_image_attributes
+
+  private
+    def update_image_attributes
+      
+    end
+    
 end
