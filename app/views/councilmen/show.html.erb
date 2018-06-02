@@ -27,10 +27,12 @@
   <%= @councilman.political_position %>
 </p>
 
-<%= link_to 'Edit', edit_councilman_path(@councilman) %> |
-<%= link_to 'Back', councilmen_path %>
-
   </div>
+</div>
+</div>
 </div>
 
   
+
+<%= link_to 'Edit', edit_councilman_path(@councilman), class: "btn btn-warning" %> |
+<%= link_to 'Back', councilmen_path, class: "btn btn-info" %>

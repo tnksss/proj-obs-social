@@ -1,18 +1,18 @@
 
 <div class="box">
   <div class="box-header">
-    <h1>Sessions</h1>
-    <%= link_to 'New Session', new_session_path, class: "btn btn-info" %>
+    <h1>Sessões</h1>
+    <%= link_to 'Nova Sessão', new_session_path, class: "btn btn-info" %>
   </div>
   <div class="box-body  table-responsive">
     <table class="table table-bordered table-striped">
       <thead class="">
         <tr>
-          <th>Date</th>
-          <th>Start session</th>
-          <th>End session</th>
-          <th>Note</th>
-          <th>Projects</th>
+          <th>Data</th>
+          <th>Inicio session</th>
+          <th>Fim session</th>
+          <th>Notas</th>
+          <th>Projetos</th>
           <th colspan="4">Ações</th>
         </tr>
       </thead>
@@ -38,5 +38,5 @@
     </table>
   </div>
 </div>
-
+<%= will_paginate @sessions %>
   

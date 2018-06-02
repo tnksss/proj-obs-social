@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   # GET /sessions
   # GET /sessions.json
   def index
-    @sessions = Session.all
+    @sessions = Session.all.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /sessions/1
