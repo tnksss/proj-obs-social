@@ -4,7 +4,7 @@ class CouncilmenController < ApplicationController
   # GET /councilmen
   # GET /councilmen.json
   def index
-    @councilmen = Councilman.all
+    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /councilmen/1
@@ -74,6 +74,6 @@ class CouncilmenController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def councilman_params
-    params.require(:councilman).permit(:name, :nickname, :political_party, :political_position)
+    params.require(:councilman).permit(:name, :nickname, :political_party, :remove_image, :political_position)
   end
 end

@@ -24,7 +24,7 @@
         <td><%= councilman.political_party %></td>
         <td><%= councilman.political_position %></td>
         <td><%= councilman.projects.size%></td>
-        <td><%= link_to '', councilman, class: "fa fa-search btn btn-info" %></td>
+        <td><%= link_to '', councilman, class: "fa fa-search btn btn-info"   %></td>
         <td><%= link_to '', edit_councilman_path(councilman), class: "fa fa-edit btn btn-warning" %></td>
         <td><%= link_to '', councilman, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-remove btn btn-danger" %></td>
       </tr>
@@ -32,5 +32,7 @@
   </tbody>
 </table>
 </div>
+
 </div>
+<%= will_paginate @councilmen %>
 

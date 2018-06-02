@@ -22,7 +22,10 @@ gem "font-ionicons-rails"
 gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'i18n_rails_helpers'
+gem 'bootstrap-tooltip-rails'
 
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
