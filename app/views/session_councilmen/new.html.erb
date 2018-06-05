@@ -2,9 +2,46 @@
 <div class="box-header">
 <h3>Inserir Vereador na sessão</h3>
 </div>
-<div class="box-body table-responsive col-md-8">
-<%= render 'form', session_councilman: @session_councilman %>
+<div class="box-body ">
+
+
 </div>
+
+<%= simple_form_for(@session_councilman) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :session, label_method: :formatted_date, value_method: :id, prompt: "Escolha a data da sessão" %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Vereador</th>
+          <th>Presença</th>
+          <th>Chegada</th>
+          <th>Partida</th>
+          <th>Anotações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @councilmen.each do |councilman| %>
+          <tr>
+            <td><%= councilman.nickname %></td>
+            <td><%= f.input :being, collection: SessionCouncilman.translate_enum_collection(:being), prompt: "Participou desta sessão?"%>  </td>
+            <td><%= f.input :arrival %> </td>
+            <td><%= f.input :leaving %> </td>
+            <td><%= f.input :note %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', session_councilmen_path, class: "btn btn-info" %>
 </div>

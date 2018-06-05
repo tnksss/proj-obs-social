@@ -23,7 +23,7 @@
         <td><% if (councilman.avatar?)%>
           <%= image_tag(councilman.avatar.thumb.url) %>
         <%else%>
-        <%= gravatar_for(councilman, 50)%>
+        <%= gravatar_for(councilman, 50, "gravatar")%>
         <%end%>
         </td>
         <td><%= councilman.name%></td>

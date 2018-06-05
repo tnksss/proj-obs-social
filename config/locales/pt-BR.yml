@@ -1,8 +1,8 @@
-pt:
+pt-BR:
   activerecord:
     enums:
       councilman:
-        political_position:
+        political_positions:
           opposition: "Oposição"
           situation: "Situação"
     models:

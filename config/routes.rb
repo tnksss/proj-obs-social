@@ -12,10 +12,10 @@ Rails.application.routes.draw do
     resources :sessions do
       resources :session_councilmen
       resources :projects do
-        resources :votes, except: [:edit, :delete, :update]
       end
     end
     resources :project_kinds    
+    resources :votes, except: [:edit, :delete, :update]
     
   end
 end

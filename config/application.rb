@@ -14,8 +14,8 @@ module ProjObsSocial
 
 
     # config.i18n.enforce_available_locales = false
-    #config.i18n.available_locales = ["pt-BR", :pt-BR, "en", :en]
-    config.i18n.default_locale = "pt-BR"
+    config.i18n.available_locales = ["pt", :pt, "en", :en]
+    config.i18n.default_locale = "pt"
 
     end
 end

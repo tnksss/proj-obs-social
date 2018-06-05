@@ -14,6 +14,7 @@ class SessionCouncilmenController < ApplicationController
 
   # GET /session_councilmen/new
   def new
+    @councilmen = Councilman.all
     @session_councilman = SessionCouncilman.new
   end
 
