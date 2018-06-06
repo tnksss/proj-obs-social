@@ -4,18 +4,12 @@ Rails.application.routes.draw do
 
     root to: "dashboard#index"
     resources :projects
-
-    resources :councilmen do
-      resources :projects
-    end
+    resources :councilmen
+    resources :projects
+    resources :sessions
     resources :session_councilmen
-    resources :sessions do
-      resources :session_councilmen
-      resources :projects do
-      end
-    end
     resources :project_kinds    
-    resources :votes, except: [:edit, :delete, :update]
+    resources :votes
     
   end
 end

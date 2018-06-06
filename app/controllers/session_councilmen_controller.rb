@@ -1,6 +1,7 @@
 class SessionCouncilmenController < ApplicationController
   before_action :set_session_councilman, only: [:show, :edit, :update, :destroy]
 
+
   # GET /session_councilmen
   # GET /session_councilmen.json
   def index
@@ -14,6 +15,7 @@ class SessionCouncilmenController < ApplicationController
 
   # GET /session_councilmen/new
   def new
+    
     @councilmen = Councilman.all
     @session_councilman = SessionCouncilman.new
   end
@@ -25,6 +27,7 @@ class SessionCouncilmenController < ApplicationController
   # POST /session_councilmen
   # POST /session_councilmen.json
   def create
+
     @session_councilman = SessionCouncilman.new(session_councilman_params)
 
     respond_to do |format|

@@ -11,7 +11,8 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs">    
+    
     <%= f.association :session, label_method: :formatted_date, value_method: :id, prompt: "Escolha a data da sessão" %>
     <table class="table table-striped">
       <thead>

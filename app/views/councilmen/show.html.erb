@@ -30,6 +30,12 @@
 
 <div class="box">
   <div class="box-header">
+
+  <p><h3>Detalhes do Vereador</h3></p>
+
+  <div class="row">
+  
+  <div class="col-sm-4">
     <p>
       <strong>Name:</strong>
       
@@ -58,6 +64,11 @@
 </div>
 </div>
 
+<%= link_to 'Edit', edit_councilman_path(@councilman), class: "btn btn-warning" %> |
+<%= link_to 'Back', councilmen_path, class: "btn btn-info" %>
+
+
+  
   
 
 <%= link_to 'Edit', edit_councilman_path(@councilman), class: "btn btn-warning" %> |
