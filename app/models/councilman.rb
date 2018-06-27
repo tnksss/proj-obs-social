@@ -4,5 +4,9 @@ class Councilman < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :nickname, presence: true
   has_many :projects
+  has_many :session_councilmen
+  has_many :sessions, through: :session_councilmen
+
+
   mount_uploader :avatar, AvatarUploader
 end

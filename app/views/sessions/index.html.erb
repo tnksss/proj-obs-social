@@ -29,7 +29,7 @@
 
             
             <td><%= link_to '', session, class: "btn btn-warning fa fa-search" %></td>
-            <td><%= link_to '', new_session_councilman_path, class: "btn btn-success fa fa-plus" %>
+            <td><%= link_to '', session_presents_path(session), class: "btn btn-success fa fa-plus" %>
             <td><%= link_to '', edit_session_path(session.id), class:"btn btn-info fa fa-edit"%></td>
             <td><%= link_to '', session, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger fa fa-remove"%></td>
           </tr>

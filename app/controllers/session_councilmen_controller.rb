@@ -2,43 +2,56 @@ class SessionCouncilmenController < ApplicationController
   before_action :set_session_councilman, only: [:show, :edit, :update, :destroy]
 
 
-  # GET /session_councilmen
-  # GET /session_councilmen.json
   def index
     @session_councilmen = SessionCouncilman.all
   end
 
-  # GET /session_councilmen/1
-  # GET /session_councilmen/1.json
   def show
   end
 
-  # GET /session_councilmen/new
   def new
+    # @session = Session.find(params[:session_id])
+    @session = Session.find(params[:session_id])
+    
+    # @councilmen = Councilman.all
+    # @councilmen.each do |c| 
+    #   @session.session_councilmen.build councilman_id: c.id
+    # end  
+
     
     @councilmen = Councilman.all
     @session_councilman = SessionCouncilman.new
   end
 
-  # GET /session_councilmen/1/edit
   def edit
   end
 
-  # POST /session_councilmen
-  # POST /session_councilmen.json
   def create
-
-    @session_councilman = SessionCouncilman.new(session_councilman_params)
-
-    respond_to do |format|
-      if @session_councilman.save
-        format.html { redirect_to @session_councilman, notice: 'Session councilman was successfully created.' }
-        format.json { render :show, status: :created, location: @session_councilman }
+    @session = Session.find(params[:session_id])
+    
+    params[:session_councilman].each do |councilman_id, options|
+      sc = @session.session_councilmen.find_by councilman_id: councilman_id
+      if sc.nil?
+        @session.session_councilmen.create councilman_id: councilman_id,
+                                         note: options[:note],
+                                         being: options[:being]
       else
-        format.html { render :new }
-        format.json { render json: @session_councilman.errors, status: :unprocessable_entity }
-      end
-    end
+        sc.update_attributes(note: options[:note], being: options[:being])  
+      end    
+    end 
+
+    redirect_back(fallback_location: root_path)
+    # @session_councilman = SessionCouncilman.new(session_councilman_params)
+
+    # respond_to do |format|
+    #   if @session_councilman.save
+    #     format.html { redirect_to @session_councilman, notice: 'Session councilman was successfully created.' }
+    #     format.json { render :show, status: :created, location: @session_councilman }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @session_councilman.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /session_councilmen/1
@@ -55,8 +68,6 @@ class SessionCouncilmenController < ApplicationController
     end
   end
 
-  # DELETE /session_councilmen/1
-  # DELETE /session_councilmen/1.json
   def destroy
     @session_councilman.destroy
     respond_to do |format|
@@ -66,13 +77,11 @@ class SessionCouncilmenController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_session_councilman
       @session_councilman = SessionCouncilman.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def session_councilman_params
-      params.require(:session_councilman).permit(:session_id, :councilman_id, :arrival, :leaving, :note)
+      params.require(:session_councilman).permit(:being, :note)
     end
 end
