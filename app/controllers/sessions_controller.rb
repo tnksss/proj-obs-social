@@ -61,6 +61,28 @@ class SessionsController < ApplicationController
     end
   end
 
+  def presents
+      @session = Session.find(params[:session_id])
+
+      ## Cuidado com esse código, como lhe falei você precisa pensar nos mandatos 
+      Councilman.all.each do |c|
+        @session.session_councilmen.find_or_create_by!(councilman_id: c.id)
+      end
+  end
+
+  def update_presents
+    @session = Session.find(params[:session_id])
+    sc_params = params.require(:session).permit(session_councilmen_attributes: [:id, :note, :present])
+
+    if @session.update(sc_params)
+      flash[:success] = 'Dados atualizados com sucesso'
+    else
+      flash[:error] = 'Não foi possível atualizar os dados'
+    end
+
+    redirect_back(fallback_location: root_path)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_session

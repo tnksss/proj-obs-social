@@ -1,0 +1,15 @@
+<h1>Atualização de presença</h1>
+
+<%= simple_form_for @session, url: session_presents_path do |s| %>
+  <table class="table table-bordered">
+    <%= s.simple_fields_for :session_councilmen do |sc| %>
+      <tr>
+        <td><%= sc.object.councilman.name %></td>
+        <td><%= sc.input :present, as: :boolean %></td>
+        <td><%= sc.input :note %></td>
+      </tr>
+    <% end %>
+
+  </table>
+  <%= s.button :submit %>
+<% end %>

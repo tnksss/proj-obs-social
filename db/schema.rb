@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_02_185454) do
+ActiveRecord::Schema.define(version: 2018_06_02_165557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_06_02_185454) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "being"
+    t.boolean "present", default: false
     t.index ["councilman_id"], name: "index_session_councilmen_on_councilman_id"
     t.index ["session_id"], name: "index_session_councilmen_on_session_id"
   end

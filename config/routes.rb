@@ -6,16 +6,16 @@ Rails.application.routes.draw do
     resources :projects
     resources :councilmen
     resources :projects
-    
+
     resources :sessions do
-      get 'presents', to: "session_councilmen#new"
-      post 'presents', to: "session_councilmen#create"
+      get 'presents', to: "sessions#presents"
+      patch 'presents', to: "sessions#update_presents"
     end
-    
-    #resources :session_councilmen 
-    
-    resources :project_kinds    
+
+    #resources :session_councilmen
+
+    resources :project_kinds
     resources :votes
-    
+
   end
 end
