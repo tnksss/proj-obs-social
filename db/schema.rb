@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_02_165557) do
+ActiveRecord::Schema.define(version: 2018_07_04_002551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2018_06_02_165557) do
   create_table "session_councilmen", force: :cascade do |t|
     t.bigint "session_id"
     t.bigint "councilman_id"
-    t.time "arrival"
+    t.time "arrival", default: "2000-01-01 00:00:00"
     t.time "leaving"
     t.text "note"
     t.datetime "created_at", null: false
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2018_06_02_165557) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.datetime "date"
-    t.datetime "start_session"
-    t.datetime "end_session"
+    t.date "date"
+    t.time "start_session"
+    t.time "end_session"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
