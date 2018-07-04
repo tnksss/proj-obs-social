@@ -1,17 +1,8 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
- 
-  def index
-    @votes = Vote.all
-  end
-
-  def show
-  end
-
   def new
-    @project = Project.find(params[:project_id])
-    
+    @project = Project.find(params[:project_id])    
     @councilmen = Councilman.all
     @vote = Vote.new
   end

@@ -8,8 +8,7 @@ class SessionCouncilmenController < ApplicationController
 
   def new
     
-    @session = Session.find(params[:session_id])
-    
+    @session = Session.find(params[:session_id])    
     @councilmen = Councilman.all
     @session_councilman = SessionCouncilman.new
   end
