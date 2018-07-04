@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   authenticate :user do
 
     root to: "dashboard#index"
-    resources :projects
+    
     resources :councilmen
+    resources :projects do
+      get 'votes', to: "projects#votes"
+      patch 'votes', to: "projects#update_votes"
+    end
+    
     
 
     resources :sessions do

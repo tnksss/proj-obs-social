@@ -3,4 +3,11 @@ class Project < ApplicationRecord
   belongs_to :session
   belongs_to :project_kind
   belongs_to :councilman
+
+  has_many :projects
+
+  has_many :votes, inverse_of: :project
+  accepts_nested_attributes_for :votes
+
+  has_many :councilmen, :through => :votes
 end

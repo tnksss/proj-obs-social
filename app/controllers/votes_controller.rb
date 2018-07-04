@@ -1,44 +1,41 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
-  # GET /votes
-  # GET /votes.json
+ 
   def index
     @votes = Vote.all
   end
 
-  # GET /votes/1
-  # GET /votes/1.json
   def show
   end
 
-  # GET /votes/new
   def new
+    @project = Project.find(params[:project_id])
+    
+    @councilmen = Councilman.all
     @vote = Vote.new
   end
 
-  # GET /votes/1/edit
+
   def edit
   end
 
-  # POST /votes
-  # POST /votes.json
   def create
-    @vote = Vote.new(vote_params)
-
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote }
+    @project = Project.find(params[:project_id])
+    
+    params[:vote].each do |councilman_id, options|
+      v = @project.votes.find_by councilman_id: councilman_id
+      if v.nil?
+        @project.votes.create councilman_id: councilman_id,                                         
+                                         vote: options[:vote]
       else
-        format.html { render :new }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
-      end
-    end
+        v.update_attributes(vote: options[:vote])  
+      end    
+    end 
+
+    redirect_back(fallback_location: root_path)
   end
 
-  # PATCH/PUT /votes/1
-  # PATCH/PUT /votes/1.json
   def update
     respond_to do |format|
       if @vote.update(vote_params)
@@ -51,8 +48,6 @@ class VotesController < ApplicationController
     end
   end
 
-  # DELETE /votes/1
-  # DELETE /votes/1.json
   def destroy
     @vote.destroy
     respond_to do |format|
@@ -62,13 +57,13 @@ class VotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_vote
       @vote = Vote.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def vote_params
       params.require(:vote).permit(:project_id, :councilman_id, :vote)
     end
+
 end
+

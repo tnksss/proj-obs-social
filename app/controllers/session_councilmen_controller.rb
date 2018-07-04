@@ -6,24 +6,12 @@ class SessionCouncilmenController < ApplicationController
     @session_councilmen = SessionCouncilman.all
   end
 
-  def show
-  end
-
   def new
-    # @session = Session.find(params[:session_id])
-    @session = Session.find(params[:session_id])
     
-    # @councilmen = Councilman.all
-    # @councilmen.each do |c| 
-    #   @session.session_councilmen.build councilman_id: c.id
-    # end  
-
+    @session = Session.find(params[:session_id])
     
     @councilmen = Councilman.all
     @session_councilman = SessionCouncilman.new
-  end
-
-  def edit
   end
 
   def create
@@ -41,21 +29,8 @@ class SessionCouncilmenController < ApplicationController
     end 
 
     redirect_back(fallback_location: root_path)
-    # @session_councilman = SessionCouncilman.new(session_councilman_params)
-
-    # respond_to do |format|
-    #   if @session_councilman.save
-    #     format.html { redirect_to @session_councilman, notice: 'Session councilman was successfully created.' }
-    #     format.json { render :show, status: :created, location: @session_councilman }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @session_councilman.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
-  # PATCH/PUT /session_councilmen/1
-  # PATCH/PUT /session_councilmen/1.json
   def update
     respond_to do |format|
       if @session_councilman.update(session_councilman_params)

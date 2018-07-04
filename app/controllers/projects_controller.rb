@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :session_projects]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.all.paginate(:page => params[:page], :per_page => 6)
@@ -14,6 +14,19 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+  end
+
+  def votes    
+    @project = Project.find(params[:project_id])
+  end
+
+  def votes
+    @project = Project.find(params[:project_id])
+
+    
+    Councilman.all.each do |c|
+      @project.votes.find_or_create_by!(councilman_id: c.id)
+    end
   end
 
   def create
@@ -32,8 +45,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
       if @project.update(project_params)
@@ -48,8 +59,19 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
+  def update_votes
+    @project = Project.find(params[:project_id])
+    vote_params = params.require(:project).permit(votes_attributes: [:id, :vote])
+
+    if @project.update(vote_params)
+      flash[:success] = 'Dados atualizados com sucesso'
+    else
+      flash[:error] = 'Não foi possível atualizar os dados'
+    end
+
+    redirect_back(fallback_location: root_path)
+  end
+
   def destroy
     @project.destroy
     respond_to do |format|
