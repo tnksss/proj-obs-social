@@ -30,7 +30,7 @@
         <td><%= sc.input_field :present, as: :boolean %></td>
         
         <% if sc.object.councilman.present? %>
-           <td><%=sc.input_field :arrival, input_html: {value: "00:00:00"}   %></td>
+           <td><%=sc.input_field :arrival   %></td>
           <td><%=sc.input_field :leaving %></td>
         <% end %>
 

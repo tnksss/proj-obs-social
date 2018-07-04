@@ -1,29 +1,21 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :session_projects]
 
-  # GET /projects
-  # GET /projects.json
   def index
     @projects = Project.all.paginate(:page => params[:page], :per_page => 6)
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
   end
 
-  # GET /projects/new
   def new
     @project = Project.new
     @project_kind = ProjectKind.new
   end
 
-  # GET /projects/1/edit
   def edit
   end
 
-  # POST /projects
-  # POST /projects.json
   def create
     @project = Project.new(project_params)
 
@@ -72,6 +64,7 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.find(params[:id])
   end
+  
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params

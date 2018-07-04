@@ -54,6 +54,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def projects    
+    @session = Session.find(params[:session_id])
+  end
+
   def presents
       @session = Session.find(params[:session_id])
 

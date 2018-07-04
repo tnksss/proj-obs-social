@@ -5,14 +5,13 @@ Rails.application.routes.draw do
     root to: "dashboard#index"
     resources :projects
     resources :councilmen
-    resources :projects
+    
 
     resources :sessions do
       get 'presents', to: "sessions#presents"
       patch 'presents', to: "sessions#update_presents"
+      get 'projects', to: "sessions#projects"
     end
-
-    #resources :session_councilmen
 
     resources :project_kinds
     resources :votes
