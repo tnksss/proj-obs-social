@@ -1,29 +1,34 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-  # GET /projects
-  # GET /projects.json
   def index
     @projects = Project.all.paginate(:page => params[:page], :per_page => 7)
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
   def show
   end
 
-  # GET /projects/new
   def new
     @project = Project.new
     @project_kind = ProjectKind.new
   end
 
-  # GET /projects/1/edit
   def edit
   end
 
-  # POST /projects
-  # POST /projects.json
+  def votes    
+    @project = Project.find(params[:project_id])
+  end
+
+  def votes
+    @project = Project.find(params[:project_id])
+
+    
+    Councilman.all.each do |c|
+      @project.votes.find_or_create_by!(councilman_id: c.id)
+    end
+  end
+
   def create
     @project = Project.new(project_params)
 
@@ -40,8 +45,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
       if @project.update(project_params)
@@ -56,8 +59,19 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
+  def update_votes
+    @project = Project.find(params[:project_id])
+    vote_params = params.require(:project).permit(votes_attributes: [:id, :vote])
+
+    if @project.update(vote_params)
+      flash[:success] = 'Dados atualizados com sucesso'
+    else
+      flash[:error] = 'Não foi possível atualizar os dados'
+    end
+
+    redirect_back(fallback_location: root_path)
+  end
+
   def destroy
     @project.destroy
     respond_to do |format|
@@ -72,6 +86,7 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.find(params[:id])
   end
+  
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params

@@ -25,7 +25,7 @@
             
             <td><%= session.end_session.to_time.strftime('%H:%M') %></td>
             <td><%= session.note %></td>
-            <td><%= session.projects.size %></td>
+            <td><%= link_to session.projects.size, session_projects_path(session) %></td>
 
             
             <td><%= link_to '', session, class: "btn btn-warning fa fa-search", title: "Visualizar Sessão" %></td>
