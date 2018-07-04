@@ -10,7 +10,7 @@
 
        <%= f.file_field :avatar %>
 
-    <%= f.input :political_position, collection: Councilman.translate_enum_collection(:political_position), prompt: "Informe uma posição"%>  
+    <%= f.input :political_position, collection: Councilman.political_positions.keys.to_a, prompt: "Informe uma posição"%>  
     
   </div>
 

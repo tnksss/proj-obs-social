@@ -15,7 +15,7 @@ pt-BR:
     
     labels:
       defaults:
-        password: 'Password'
+        password: 'Senha'
       user:
         new:
           email: 'E-mail para acessar.'

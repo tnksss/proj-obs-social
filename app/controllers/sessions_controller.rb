@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   
   def index
-    @sessions = Session.all.paginate(:page => params[:page], :per_page => 6)
+    @sessions = Session.all.paginate(:page => params[:page], :per_page => 7)
   end
 
  

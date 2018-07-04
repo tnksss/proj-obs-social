@@ -49,6 +49,7 @@ pt-BR:
         start_session: "Início da sessão"
         end_session: "Fim da sessão"
         note: "Notas"
+        New Session : "Nova Sessão"
       project:
         session: "Sessão"
         name: "Nome"

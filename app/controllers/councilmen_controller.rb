@@ -4,7 +4,7 @@ class CouncilmenController < ApplicationController
   # GET /councilmen
   # GET /councilmen.json
   def index
-    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 6)
+    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 7)
   end
 
   # GET /councilmen/1

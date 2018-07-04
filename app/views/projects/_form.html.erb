@@ -10,7 +10,7 @@
     <%= f.input :description %>
     <div class= "form-group">
       <%= f.association :project_kind, label_method: :kind, value_method: :id, prompt: "Escolha o tipo de projeto" %>
-      <!-- Button trigger modal -->
+      <!-- Button trigger modal 
       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
           Novo tipo
       </button>
@@ -20,10 +20,12 @@
     <%= f.input :start_project %>
     <%= f.input :end_project %>
     <%= f.input :result %>
+    -->
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
-  </div>
+  
   <%= render 'modal'%>
+  </div>
 <% end %>
