@@ -26,8 +26,8 @@
         <td><%= project.name %></td>
         <td><%= truncate(project.description, length: 50) %></td>
         <td><%= project.project_kind.kind %></td>
-        <td><%= project.start_project.to_time.strftime('%H:%M') %></td>
-        <td><%= project.end_project.to_time.strftime('%H:%M') %></td>
+        <td></td>
+        <td></td>
         <td><%= project.result %></td>
         <td><%= link_to '', project_votes_path(project), class: "btn btn-success fa fa-plus" %>
         <td><%= link_to '', project, class: "btn btn-info fa fa-search" %></td>
