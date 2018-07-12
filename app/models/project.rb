@@ -10,4 +10,5 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :votes
 
   has_many :councilmen, :through => :votes
+  
 end

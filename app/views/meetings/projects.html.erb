@@ -5,7 +5,7 @@
 <%= link_to 'Novo Projeto', new_project_path, class: "btn btn-info" %>
 </div>
 <div class="box-body table-responsive">
-<table class="table table-bordered table-striped">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Sessão</th>
@@ -14,20 +14,20 @@
       <th>Proposto pelo Vereador</th>
       <th>Tipo</th>      
       <th>Resultado</th>
-      <th colspan="4">Ações</th>
+      <th colspan="3">Ações</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <% @meeting.projects.each do |project| %>
       <tr>
         <td><%= project.meeting.date.to_time.strftime('%d/%m/%Y')%></td>
         <td><%= project.name %></td>
         <td><%= truncate(project.description, length: 50) %></td>
         <td><%= project.councilman.name %></td>
-        <td><%= project.project_kind.kind %></td>        
+        <td><%= project.project_kind.kind %></td>
+        
         <td><%= project.result %></td>
-
         <td><%= link_to '', project_votes_path(project), class: "btn btn-success fa fa-plus" %>
         <td><%= link_to '', project, class: "btn btn-info fa fa-search" %></td>
         <td><%= link_to '', edit_project_path(project), class: "btn btn-warning fa fa-edit"  %></td>
@@ -38,4 +38,4 @@
 </table>
 </div>
 </div>
-<%= will_paginate @projects %>
+

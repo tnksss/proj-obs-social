@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @project_kind = ProjectKind.new
   end
 
   def edit
@@ -90,6 +89,6 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:meeting_id, :name, :description, :project_kind_id, :start_project, :end_project, :result)
+    params.require(:project).permit(:meeting_id, :councilman_id, :name, :description, :project_kind_id, :start_project, :end_project, :result)
   end
 end
