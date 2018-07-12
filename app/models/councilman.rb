@@ -5,7 +5,7 @@ class Councilman < ApplicationRecord
   validates :nickname, presence: true
   has_many :projects
   has_many :session_councilmen
-  has_many :sessions, through: :session_councilmen
+  has_many :meetings, through: :session_councilmen
 
 
   mount_uploader :avatar, AvatarUploader

@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
     def index
-        @sessions = Session.all
+        @meetings = Meeting.all
         @councilmen = Councilman.all
         @projects = Project.all
     end

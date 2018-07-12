@@ -16,7 +16,7 @@
 end
 
 5.times do
-  Session.create([{
+  Meeting.create([{
     date: Faker::Date.between(30.days.ago, Date.today),
     start_session: Faker::Time.between(2.days.ago, Date.today, :morning),
     end_session: Faker::Time.between(2.days.ago, Date.today, :afternoon),
@@ -25,7 +25,7 @@ end
 end
 5.times do
   ProjectKind.create([{
-    kind: Faker::Beer.name,
+    kind: Faker::Name.name,
     description: Faker::Lorem.paragraph(1),
   }])
 end

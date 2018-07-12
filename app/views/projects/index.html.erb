@@ -22,23 +22,17 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.session.date.to_time.strftime('%d/%m/%Y')%></td>
+        <td><%= project.meeting.date.to_time.strftime('%d/%m/%Y')%></td>
         <td><%= project.name %></td>
         <td><%= truncate(project.description, length: 50) %></td>
         <td><%= project.project_kind.kind %></td>
         <td><%= project.start_project.to_time.strftime('%H:%M') %></td>
         <td><%= project.end_project.to_time.strftime('%H:%M') %></td>
         <td><%= project.result %></td>
-<<<<<<< HEAD
-        <td><%= link_to '', project, class: "btn btn-info fa fa-search", title: "Visualizar Projeto" %></td>
-        <td><%= link_to '', edit_project_path(project), class: "btn btn-warning fa fa-edit", title: "Editar Projeto"  %></td>
-        <td><%= link_to '', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger fa fa-remove" , title: "Excluir Projeto" %></td>
-=======
         <td><%= link_to '', project_votes_path(project), class: "btn btn-success fa fa-plus" %>
         <td><%= link_to '', project, class: "btn btn-info fa fa-search" %></td>
         <td><%= link_to '', edit_project_path(project), class: "btn btn-warning fa fa-edit"  %></td>
         <td><%= link_to '', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger fa fa-remove"  %></td>
->>>>>>> d221bd44cc591061926b210154cf153aa5e605f5
       </tr>
     <% end %>
   </tbody>

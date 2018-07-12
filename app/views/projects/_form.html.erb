@@ -4,7 +4,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :session, label_method: :formatted_date, value_method: :id, prompt: "Escolha a data da sessão" %>
+    <%= f.association :meeting, label_method: :formatted_date, value_method: :id, prompt: "Escolha a data da sessão" %>
     <%= f.association :councilman, label_method: :nickname, value_method: :id, prompt: "Escolha o vereador" %>
     <%= f.input :name %>
     <%= f.input :description %>
