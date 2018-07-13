@@ -3,6 +3,7 @@ class ProjectKindsController < ApplicationController
 
   def index
     @project_kinds = ProjectKind.all.paginate(:page => params[:page], :per_page => 7)
+                                .order(kind: :asc)
   end
 
   def show

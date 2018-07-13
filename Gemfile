@@ -16,9 +16,9 @@ gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'pg', '0.18.4'
 gem 'simple_form'
 gem 'devise'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-gem "font-ionicons-rails"
+gem 'font-ionicons-rails'
 gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'i18n_rails_helpers'

@@ -2,7 +2,7 @@ class CouncilmenController < ApplicationController
   before_action :set_councilman, only: [:show, :edit, :update, :destroy]
 
   def index
-    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 7)
+    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 5).order(name: :asc)
   end
 
   def show
