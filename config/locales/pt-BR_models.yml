@@ -35,3 +35,4 @@ pt-BR:
           password: "Senha"
           password_confirmation: "Confirmação de senha"
           remember_me: "Lembre-me"
+          current_password: "Senha Atual"
