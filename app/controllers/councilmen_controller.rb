@@ -53,6 +53,10 @@ class CouncilmenController < ApplicationController
     end
   end
 
+  def projects
+    @councilman = Councilman.find(params[:councilman_id])
+  end
+
   private
 
   def set_councilman

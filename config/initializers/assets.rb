@@ -19,3 +19,4 @@ Rails.application.config.assets.precompile += %w( dist/css/AmindLte.css )
 Rails.application.config.assets.precompile += %w( dist/css/skins/skin-green.css )
 
 Rails.application.config.assets.precompile += %w( dashboard.js )
+Rails.application.config.assets.precompile += %w( adminlte.js )

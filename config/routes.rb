@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
     root to: "dashboard#index"
     
-    resources :councilmen
+    resources :councilmen do
+      get 'projects', to: "councilmen#projects"
+    end
+
     resources :project_kinds
 
     resources :projects do

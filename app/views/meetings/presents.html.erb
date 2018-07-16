@@ -29,10 +29,10 @@
         <td><%= sc.object.councilman.name %></td>
         <td><%= sc.input_field :present, as: :boolean %></td>
         
-        <% if sc.object.councilman.present? %>
+     
            <td><%=sc.input_field :arrival   %></td>
           <td><%=sc.input_field :leaving %></td>
-        <% end %>
+     
 
         <td><%= sc.input_field :note %></td>
       </tr>
