@@ -25,6 +25,9 @@ gem 'i18n_rails_helpers'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '~> 4.3'
 
+#breadcrumbs
+gem 'gretel', '~> 3.0', '>= 3.0.9'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

@@ -1,7 +1,14 @@
+<div class="box box-sucess">
+  <div class="box-header">
 <h1>Editando Tipo de projeto</h1>
+</div>
 
+<% breadcrumb :edit_project_kind, @project_kind  %>
+
+<div class="box-body">
 <%= render 'form', project_kind: @project_kind %>
 
-<br>
-<%= link_to 'Show', @project_kind, class: "btn btn-info" %> |
-<%= link_to 'Back', project_kinds_path, class: "btn btn-warning" %>
+</div>
+</div>
+
+
