@@ -19,8 +19,5 @@ Rails.application.routes.draw do
       get 'projects', to: "sessions#projects"
       
     end
-
-    
-
   end
 end
