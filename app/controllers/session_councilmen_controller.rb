@@ -6,20 +6,19 @@ class SessionCouncilmenController < ApplicationController
     @session_councilmen = SessionCouncilman.all
   end
 
-  def new
-    
-    @session = Session.find(params[:session_id])    
+  def new    
+    @meeting = Meeting.find(params[:meeting_id])    
     @councilmen = Councilman.all
     @session_councilman = SessionCouncilman.new
   end
 
   def create
-    @session = Session.find(params[:session_id])
+    @meeting = Meeting.find(params[:meeting_id])
     
     params[:session_councilman].each do |councilman_id, options|
-      sc = @session.session_councilmen.find_by councilman_id: councilman_id
+      sc = @meeting.session_councilmen.find_by councilman_id: councilman_id
       if sc.nil?
-        @session.session_councilmen.create councilman_id: councilman_id,
+        @meeting.session_councilmen.create councilman_id: councilman_id,
                                          note: options[:note],
                                          being: options[:being]
       else

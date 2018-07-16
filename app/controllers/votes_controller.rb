@@ -7,10 +7,6 @@ class VotesController < ApplicationController
     @vote = Vote.new
   end
 
-
-  def edit
-  end
-
   def create
     @project = Project.find(params[:project_id])
     

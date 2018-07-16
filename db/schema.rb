@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2018_07_04_002551) do
     t.string "avatar"
   end
 
+  create_table "meetings", force: :cascade do |t|
+    t.date "date"
+    t.time "start_session"
+    t.time "end_session"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "project_kinds", force: :cascade do |t|
     t.string "kind"
     t.text "description"
@@ -33,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_07_04_002551) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.bigint "session_id"
+    t.bigint "meeting_id"
     t.string "name"
     t.text "description"
     t.bigint "project_kind_id"
@@ -44,12 +53,12 @@ ActiveRecord::Schema.define(version: 2018_07_04_002551) do
     t.datetime "updated_at", null: false
     t.bigint "councilman_id"
     t.index ["councilman_id"], name: "index_projects_on_councilman_id"
+    t.index ["meeting_id"], name: "index_projects_on_meeting_id"
     t.index ["project_kind_id"], name: "index_projects_on_project_kind_id"
-    t.index ["session_id"], name: "index_projects_on_session_id"
   end
 
   create_table "session_councilmen", force: :cascade do |t|
-    t.bigint "session_id"
+    t.bigint "meeting_id"
     t.bigint "councilman_id"
     t.time "arrival", default: "2000-01-01 00:00:00"
     t.time "leaving"
@@ -58,16 +67,7 @@ ActiveRecord::Schema.define(version: 2018_07_04_002551) do
     t.datetime "updated_at", null: false
     t.boolean "present", default: false
     t.index ["councilman_id"], name: "index_session_councilmen_on_councilman_id"
-    t.index ["session_id"], name: "index_session_councilmen_on_session_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.date "date"
-    t.time "start_session"
-    t.time "end_session"
-    t.text "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_session_councilmen_on_meeting_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(version: 2018_07_04_002551) do
   end
 
   add_foreign_key "projects", "councilmen"
+  add_foreign_key "projects", "meetings"
   add_foreign_key "projects", "project_kinds"
-  add_foreign_key "projects", "sessions"
   add_foreign_key "session_councilmen", "councilmen"
-  add_foreign_key "session_councilmen", "sessions"
+  add_foreign_key "session_councilmen", "meetings"
   add_foreign_key "votes", "councilmen"
   add_foreign_key "votes", "projects"
 end

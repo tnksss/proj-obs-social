@@ -1,28 +1,20 @@
 class CouncilmenController < ApplicationController
   before_action :set_councilman, only: [:show, :edit, :update, :destroy]
 
-  # GET /councilmen
-  # GET /councilmen.json
   def index
-    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 7)
+    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 5).order(name: :asc)
   end
 
-  # GET /councilmen/1
-  # GET /councilmen/1.json
   def show
   end
 
-  # GET /councilmen/new
   def new
     @councilman = Councilman.new
   end
 
-  # GET /councilmen/1/edit
   def edit
   end
 
-  # POST /councilmen
-  # POST /councilmen.json
   def create
     @councilman = Councilman.new(councilman_params)
 
@@ -39,8 +31,6 @@ class CouncilmenController < ApplicationController
     end
   end
 
-  # PATCH/PUT /councilmen/1
-  # PATCH/PUT /councilmen/1.json
   def update
     respond_to do |format|
       if @councilman.update(councilman_params)
@@ -55,8 +45,6 @@ class CouncilmenController < ApplicationController
     end
   end
 
-  # DELETE /councilmen/1
-  # DELETE /councilmen/1.json
   def destroy
     @councilman.destroy
     respond_to do |format|
@@ -65,14 +53,16 @@ class CouncilmenController < ApplicationController
     end
   end
 
+  def projects
+    @councilman = Councilman.find(params[:councilman_id])
+  end
+
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_councilman
     @councilman = Councilman.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def councilman_params
     params.require(:councilman).permit(:name, :nickname, :political_party, :political_position, :avatar)
   end

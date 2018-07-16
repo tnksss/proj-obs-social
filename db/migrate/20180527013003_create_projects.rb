@@ -1,7 +1,7 @@
 class CreateProjects < ActiveRecord::Migration[5.2]
   def change
     create_table :projects do |t|
-      t.references :session, foreign_key: true
+      t.references :meeting, foreign_key: true
       t.string :name
       t.text :description
       t.references :project_kind, foreign_key: true

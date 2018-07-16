@@ -2,7 +2,7 @@ pt-BR:
   activerecord:
       models:
         councilman: Vereador
-        session: Sessão
+        meeting: Sessão
         project: Projeto
         project kind: Tipo do Projeto
         user: Usuario
@@ -12,13 +12,13 @@ pt-BR:
           nickname: "Apelido"
           political_position: "Posição Partidária"
           political_party: "Partido Politico"
-        session:
+        meeting:
           date: "Data"
           start_session: "Inicio da Sessão"
           end_session: "Final da Sessão"
           note: "Notas"
         project:
-          session: "Sessão"
+          meeting: "Sessão"
           councilman: "Proposta do Vereador"
           name:	"Nome"
           description: "Descrição"
@@ -26,7 +26,7 @@ pt-BR:
           start_project: "Inicio do Projeto"
           end_project: "Final do Projeto"
           result: "Resultado"
-        projeto_kind:
+        project_kind:
           kind: "Tipo de Projeto"
           description: "Descrição do Projeto"
         user:

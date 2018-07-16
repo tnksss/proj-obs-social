@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @project_kind = ProjectKind.new
   end
 
   def edit
@@ -28,6 +27,23 @@ class ProjectsController < ApplicationController
       @project.votes.find_or_create_by!(councilman_id: c.id)
     end
   end
+
+  #def result
+  #  @project = Project.find(params[:project_id])
+  #  @votes = @project.votes
+#
+  #  @votes.each do |v|
+  #    case v.vote
+  #    when :favorable 
+  #      favorable++
+  #    when :contrary
+  #      constrary++
+  #    when :abstention
+  #      abstention++
+  #    else
+  #      diferent++;
+  #  end
+  #end
 
   def create
     @project = Project.new(project_params)
@@ -64,12 +80,12 @@ class ProjectsController < ApplicationController
     vote_params = params.require(:project).permit(votes_attributes: [:id, :vote])
 
     if @project.update(vote_params)
-      flash[:success] = 'Dados atualizados com sucesso'
+      flash[:success] = 'Votos atualizados com sucesso'
     else
       flash[:error] = 'Não foi possível atualizar os dados'
     end
 
-    redirect_back(fallback_location: root_path)
+    redirect_to action: "index"
   end
 
   def destroy
@@ -90,6 +106,6 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:session_id, :name, :description, :project_kind_id, :start_project, :end_project, :result)
+    params.require(:project).permit(:meeting_id, :councilman_id, :name, :description, :project_kind_id, :start_project, :end_project, :result)
   end
 end

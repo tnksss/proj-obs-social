@@ -20,9 +20,9 @@
   </thead>
 
   <tbody>
-    <% @session.projects.each do |project| %>
+    <% @meeting.projects.each do |project| %>
       <tr>
-        <td><%= project.session.date.to_time.strftime('%d/%m/%Y')%></td>
+        <td><%= project.meeting.date.to_time.strftime('%d/%m/%Y')%></td>
         <td><%= project.name %></td>
         <td><%= truncate(project.description, length: 50) %></td>
         <td><%= project.project_kind.kind %></td>

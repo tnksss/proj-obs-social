@@ -31,7 +31,7 @@
         <td><%= councilman.political_party %></td>
         <td><%= I18n.t(councilman.political_position, scope: [:activerecord, :attributes, :councilman, :political_positions])
 %> </td>
-        <td><%= link_to councilman.projects.size, projects_path(councilman)%></td>
+        <td><%= link_to councilman.projects.size, councilman_projects_path(councilman)%></td>
         <td><%= link_to '', councilman, class: "fa fa-search btn btn-info" , title: "Visualizar Vereador"%></td>
         <td><%= link_to '', edit_councilman_path(councilman), class: "fa fa-edit btn btn-warning", title: "Editar Vereador" %></td>
         <td><%= link_to '', councilman, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-remove btn btn-danger", title: "Excluir Vereador" %></td>

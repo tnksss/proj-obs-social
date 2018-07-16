@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
     root to: "dashboard#index"
     
-    resources :councilmen
+    resources :councilmen do
+      get 'projects', to: "councilmen#projects"
+    end
+
     resources :project_kinds
 
     resources :projects do
@@ -13,10 +16,10 @@ Rails.application.routes.draw do
       patch 'votes', to: "projects#update_votes"
     end    
 
-    resources :sessions do
-      get 'presents', to: "sessions#presents"
-      patch 'presents', to: "sessions#update_presents"
-      get 'projects', to: "sessions#projects"
+    resources :meetings do
+      get 'presents', to: "meetings#presents"
+      patch 'presents', to: "meetings#update_presents"
+      get 'projects', to: "meetings#projects"
       
     end
   end

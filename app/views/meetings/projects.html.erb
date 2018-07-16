@@ -11,23 +11,22 @@
       <th>Sessão</th>
       <th>Nome</th>
       <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Início</th>
-      <th>Término</th>
+      <th>Proposto pelo Vereador</th>
+      <th>Tipo</th>      
       <th>Resultado</th>
       <th colspan="3">Ações</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @session.projects.each do |project| %>
+    <% @meeting.projects.each do |project| %>
       <tr>
-        <td><%= project.session.date.to_time.strftime('%d/%m/%Y')%></td>
-        <td><%= project.name %></td>
+        <td><%= project.meeting.date.to_time.strftime('%d/%m/%Y')%></td>
+        <td><%= link_to project.name, project %></td>
         <td><%= truncate(project.description, length: 50) %></td>
+        <td><%= link_to project.councilman.name, project.councilman %></td>
         <td><%= project.project_kind.kind %></td>
-        <td><%= project.start_project.to_time.strftime('%H:%M') %></td>
-        <td><%= project.end_project.to_time.strftime('%H:%M') %></td>
+        
         <td><%= project.result %></td>
         <td><%= link_to '', project_votes_path(project), class: "btn btn-success fa fa-plus" %>
         <td><%= link_to '', project, class: "btn btn-info fa fa-search" %></td>
