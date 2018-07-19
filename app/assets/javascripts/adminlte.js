@@ -13,10 +13,14 @@
 */
 
 // Make sure jQuery has been loaded
+document.addEventListener("turbolinks:load", function() {
+  my_func();
+})
+
 if (typeof jQuery === 'undefined') {
     throw new Error('AdminLTE requires jQuery')
     }
-    document.addEventListener("turbolinks:load", function() {
+    
 
     /* BoxRefresh()
      * =========
@@ -1126,4 +1130,4 @@ if (typeof jQuery === 'undefined') {
       })
     
     }(jQuery)
-})
+

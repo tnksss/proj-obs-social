@@ -1,5 +1,10 @@
-<p id="notice"><%= notice %></p>
 
+<div class="box">
+  <div class="container">
+    <div class="box-header">
+
+<h1>Tipo de Projeto</h1>
+ </div>
 <p>
   <strong>Kind:</strong>
   <%= @project_kind.kind %>
@@ -9,6 +14,15 @@
   <strong>Description:</strong>
   <%= @project_kind.description %>
 </p>
+<br>
+<%= link_to 'Editar', edit_project_kind_path(@project_kind),  class:"btn btn-warning" %> |
+<%= link_to 'Voltar', project_kinds_path, class:"btn btn-info" %>
 
-<%= link_to 'Edit', edit_project_kind_path(@project_kind) %> |
-<%= link_to 'Back', project_kinds_path %>
+
+<br><br>
+</div>
+</div>
+
+
+
+
