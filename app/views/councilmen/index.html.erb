@@ -28,7 +28,8 @@
         <%= gravatar_for(councilman, 50, "gravatar")%>
         <%end%>
         </td>
-        <td><%= councilman.name%></td>
+        
+        <td><%= link_to councilman.name, councilman %></td>
         <td><%= councilman.nickname %></td>
         <td><%= councilman.political_party %></td>
         <td><%= I18n.t(councilman.political_position, scope: [:activerecord, :attributes, :councilman, :political_positions])

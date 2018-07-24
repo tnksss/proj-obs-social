@@ -13,10 +13,10 @@
         <p class="text-muted text-center"><%= @councilman.name %></p>
         <ul class="list-group list-group-unbordered">
           <li class="list-group-item">
-            <b>Sessões que participou</b> <a class="pull-right">1,322</a>
+            <b>Sessões que participou</b> <a class="pull-right"><%=@councilman.meetings.size%></a>
           </li>
           <li class="list-group-item">
-            <b>Projetos que apresentou</b> <a class="pull-right">543</a>
+            <b>Projetos que apresentou</b> <a class="pull-right"><%=@councilman.projects.size%></a>
           </li>
           <li class="list-group-item">
             <b>Partido</b> <a class="pull-right"><%=@councilman.political_party%></a>
