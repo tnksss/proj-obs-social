@@ -22,7 +22,8 @@
             <b>Partido</b> <a class="pull-right"><%=@councilman.political_party%></a>
           </li>
           <li class="list-group-item">
-            <b>Posição política</b> <a class="pull-right"><%=@councilman.political_position%></a>
+            <b>Posição política</b> <a class="pull-right"><%= I18n.t(@councilman.political_position, scope: [:activerecord, :attributes, :councilman, :political_positions])
+%></a>
           </li>
           
         </ul>
