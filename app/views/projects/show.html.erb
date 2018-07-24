@@ -29,7 +29,7 @@
 
 <p>
   <strong>Resultado:</strong>
-  <%= @project.result %>
+  <%= "Sem votos" if @project.result.nil? %>
 </p>
 
 <br>
