@@ -83,6 +83,12 @@ class MeetingsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  ### projetos na sessão
+  def new_project
+    @meeting = Meeting.find(params[:meeting_id])
+    @project = Project.new
+  end
+
   private
     def set_meeting
       @meeting = Meeting.find(params[:id])
