@@ -34,7 +34,7 @@ class CouncilmenController < ApplicationController
   def update
     respond_to do |format|
       if @councilman.update(councilman_params)
-        format.html { redirect_to @councilman, notice: "Councilman was successfully updated." }
+        format.html { redirect_to @councilman, notice: "Vereador atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @councilman }
       else
         flash[:error] = "Houve algum problema, reveja os dados inseridos !"

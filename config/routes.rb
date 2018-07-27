@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
-  devise_scope :users do #notice "users" here, not "user"
-    get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
-    get "/sign_up" => "devise/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
+  devise_scope :users do
+    get "/sign_in", to: "devise/sessions#new" 
+    get "/sign_up", to: "devise/registrations#new", as: "new_user_registration"
   end
 
-  devise_for :users, :skip => [:registrations]
+  devise_for :users, skip: :registrations
   as :user do
-    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
-    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+    get 'users/edit', to: 'devise/registrations#edit', as: 'edit_user_registration'
+    put 'users', to: 'devise/registrations#update', as: 'user_registration'
   end
  
-
-
   authenticate :user do
 
     root to: "dashboard#index"
@@ -31,6 +29,7 @@ Rails.application.routes.draw do
       get 'presents', to: "meetings#presents"
       patch 'presents', to: "meetings#update_presents"
       get 'projects', to: "meetings#projects"
+      get 'new', to: "meetings#new_project"
       
     end
   end

@@ -21,7 +21,7 @@
       <tbody>
         <% @meetings.each do |meeting| %>
           <tr>
-            <td><%= meeting.date.strftime('%d/%m/%Y') %></td>
+            <td><%= meeting.formatted_date %></td>
             <td><%= meeting.start_session.to_time.strftime('%H:%M') %></td>
             
             <td><%= meeting.end_session.to_time.strftime('%H:%M') %></td>
