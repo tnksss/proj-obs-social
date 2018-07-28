@@ -1,9 +1,20 @@
-
+<% breadcrumb :projects %>
 <div class="box">
 <div class="box-header">
 <h1>Projetos</h1>
-<%= link_to 'Novo Projeto', new_project_path, class: "btn btn-info" %>
-<% breadcrumb :projects %>
+<div class="row">
+      <div class="col-sm-4">
+          <%= link_to 'Novo Projeto', new_project_path, class: "btn btn-info" %>
+      </div>
+      <div class="col-sm-8">
+          <%= form_tag( projects_path, method: :get) do %>
+              <%= text_field_tag 'search', nil, placeholder:  'Digite o nome do projeto'%>
+              <%= submit_tag "Buscar",  class: "fa fa-search btn btn-info" %>
+          <% end%>
+      </div>
+    </div>
+
+
 </div>
 <div class="box-body table-responsive">
 <table class="table table-bordered table-striped">
