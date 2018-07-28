@@ -1,9 +1,23 @@
-<p id="notice"><%= notice %></p>
-<div class="box">
-<div class="box-header">
-<h1>Tipos de Projetos</h1>
-<%= link_to 'Novo Tipo de Projeto', new_project_kind_path, class: "btn btn-info" %>
 <% breadcrumb :project_kinds %>
+
+<div class="box">
+  <div class="box-header">
+    <h1>Tipos de Projetos</h1>
+
+    <div class="row">
+      <div class="col-sm-4">
+          <%= link_to 'Novo Tipo de Projeto', new_project_kind_path, class: "btn btn-info" %>
+      </div>
+      <div class="col-sm-8">
+          <%= form_tag( project_kinds_path, method: :get) do %>
+              <%= text_field_tag 'search', nil, placeholder:  'Digite o tipo do projeto'%>
+              <%= submit_tag "Buscar",  class: "fa fa-search btn btn-info" %>
+          <% end%>
+      </div>
+    </div>
+
+
+
 </div>
 <div class="box-body table-responsive">
 <table class="table table-striped">
