@@ -12,6 +12,10 @@ pt-BR:
           nickname: "Apelido"
           political_position: "Posição Partidária"
           political_party: "Partido Politico"
+          political_positions:
+            situation: "Situação"
+            opposition: "Oposição"
+          
         meeting:
           date: "Data"
           start_session: "Inicio da Sessão"

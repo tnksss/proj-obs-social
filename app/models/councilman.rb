@@ -12,4 +12,5 @@ class Councilman < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+
 end
