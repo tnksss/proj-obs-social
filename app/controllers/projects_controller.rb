@@ -2,7 +2,12 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all.paginate(:page => params[:page], :per_page => 7)
+    if params[:search]
+      @projects = Project.search(params[:search]).paginate(:page => params[:page], :per_page => 7).order(name: :asc)
+    else  
+      @projects = Project.all.paginate(:page => params[:page], :per_page => 7)
+    end
+    
   end
 
   def show

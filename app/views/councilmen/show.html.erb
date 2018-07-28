@@ -4,7 +4,7 @@
   <div class="box-body box-profile">
     
     <% if @councilman.avatar? %>
-      <%= image_tag(@councilman.avatar.big.url, class:"profile-user-img img-responsive img-circle") %>
+      <%= image_tag(@councilman.avatar.big.url, class:"profile-user-img img-vereador img-responsive img-circle") %>
     <%else%>
       <%= gravatar_for(@councilman, 200, "profile-user-img img-responsive img-circle")%>
     <%end%>
@@ -67,5 +67,5 @@
 </div>
 </div>-->
 
-<%= link_to 'Editar', edit_councilman_path(@councilman), class: "btn btn-warning" %> |
-<%= link_to 'Voltar', councilmen_path, class: "btn btn-info" %>
+<%= link_to 'Editar', edit_councilman_path(@councilman), class: "btn btn-info" %> |
+<%= link_to 'Voltar', councilmen_path, class: "btn btn-warning" %>

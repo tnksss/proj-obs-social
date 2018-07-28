@@ -2,8 +2,11 @@ class ProjectKindsController < ApplicationController
   before_action :set_project_kind, only: [:show, :edit, :update, :destroy]
 
   def index
-    @project_kinds = ProjectKind.all.paginate(:page => params[:page], :per_page => 7)
-                                .order(kind: :asc)
+    if params[:search]
+      @project_kinds = ProjectKind.search(params[:search]).paginate(:page => params[:page], :per_page => 7).order(kind: :asc)
+    else  
+      @project_kinds = ProjectKind.all.paginate(:page => params[:page], :per_page => 7).order(kind: :asc)
+    end
   end
 
   def show
