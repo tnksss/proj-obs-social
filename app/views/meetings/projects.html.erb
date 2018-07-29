@@ -19,6 +19,7 @@
   </thead>
 
   <tbody>
+  
     <% @meeting.projects.each do |project| %>
       <tr>
         <td><%= project.meeting.date.to_time.strftime('%d/%m/%Y')%></td>

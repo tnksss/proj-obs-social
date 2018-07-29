@@ -3,7 +3,7 @@
 <div class="box">
   <div class="box-header">
     <p>
-  <strong>Date:</strong>
+  <strong>Data:</strong>
   <%= @meeting.date.strftime('%d/%m/%Y') %>
 </p>
   
@@ -11,21 +11,21 @@
 
 <div class="box-body">
 <p>
-  <strong>Start session:</strong>
+  <strong>Início da sessão:</strong>
   <%= @meeting.start_session.strftime('%H:%M') %>
 </p>
 
 <p>
-  <strong>End session:</strong>
+  <strong>Término da sessão:</strong>
   <%= @meeting.end_session.strftime('%H:%M') %>
 </p>
 <p>
-  <strong>Projects: </strong>
+  <strong>Projetos: </strong>
   <%= link_to @meeting.projects.size, meeting_projects_path(@meeting) %>
 </p>
 
 <p>
-  <strong>Note:</strong>
+  <strong>Anotações:</strong>
   <%= @meeting.note %>
 </p>
 

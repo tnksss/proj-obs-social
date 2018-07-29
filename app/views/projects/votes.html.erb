@@ -25,7 +25,11 @@
     
     <tr>
       <td><%= v.object.councilman.name %></td>
+      <% unless v.object.absent?%>
       <td><%= v.input_field :vote, collection: Vote.votes.keys.to_a, prompt: "Informe o Voto"%></td>
+      <%else%>
+      <td>Ausente</td>
+      <%end%>
     </tr>
   <% end %>
 </tbody>
