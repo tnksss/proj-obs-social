@@ -6,8 +6,10 @@
     <%= f.input :name %>
     <%= f.input :nickname %>
     <%= f.input :political_party %>
-    <%= f.select(:political_position,
-        Councilman.translate_enum_collection :political_positions) %>
+    <%= f.input :political_position, collection: Councilman.political_positions
+%> 
+    
+    
 
     
 

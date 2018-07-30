@@ -10,8 +10,8 @@ pt-BR:
         councilman:
           name: "Nome"
           nickname: "Apelido"
-          political_position: "Posição Partidária"
           political_party: "Partido Politico"
+          political_position: "Posição Partidária"
           political_positions:
             situation: "Situação"
             opposition: "Oposição"

@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_meeting, :set_session_councilmen, only: [:show, :edit, :update, :destroy]
 
   
   def index
@@ -92,6 +92,9 @@ class MeetingsController < ApplicationController
   private
     def set_meeting
       @meeting = Meeting.find(params[:id])
+    end
+    def set_session_councilmen
+      @session_councilmen = SessionCouncilman.find(@meeting.session_councilman_ids)
     end
 
     def meeting_params
