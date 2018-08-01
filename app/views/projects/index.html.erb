@@ -6,11 +6,22 @@
       <div class="col-sm-4">
           <%= link_to 'Novo Projeto', new_project_path, class: "btn btn-info" %>
       </div>
-      <div class="col-sm-8">
-          <%= form_tag( projects_path, method: :get) do %>
-              <%= text_field_tag 'search', nil, placeholder:  'Digite o nome do projeto'%>
-              <%= submit_tag "Buscar",  class: "fa fa-search btn btn-info" %>
-          <% end%>
+      <div class="col-sm-4">
+
+         <%= form_tag( projects_path, method: :get) do %>
+            <div class="input-group">
+             <%= text_field_tag 'search', nil, class:"form-control", placeholder:"Digite o nome do projeto" %>
+
+              <div class="input-group-btn">
+                <%= button_tag(type: "submit", class: "btn btn-warning btn-flat") do %>
+               <i class="fa fa-search"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+
+          
       </div>
     </div>
 
@@ -52,6 +63,8 @@
     <% end %>
   </tbody>
 </table>
+<div class="pagination pagination-sm no-margin pull-right">
+<%= will_paginate @projects, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>
 </div>
-<%= will_paginate @projects %>
+

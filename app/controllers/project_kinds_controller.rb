@@ -3,9 +3,9 @@ class ProjectKindsController < ApplicationController
 
   def index
     if params[:search]
-      @project_kinds = ProjectKind.search(params[:search]).paginate(:page => params[:page], :per_page => 7).order(kind: :asc)
+      @project_kinds = ProjectKind.search(params[:search]).paginate(:page => params[:page], :per_page => 5).order(kind: :asc)
     else  
-      @project_kinds = ProjectKind.all.paginate(:page => params[:page], :per_page => 7).order(kind: :asc)
+      @project_kinds = ProjectKind.all.paginate(:page => params[:page], :per_page => 5).order(kind: :asc)
     end
   end
 

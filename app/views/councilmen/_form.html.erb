@@ -6,12 +6,8 @@
     <%= f.input :name %>
     <%= f.input :nickname %>
     <%= f.input :political_party %>
-    <%= f.input :political_position, collection: Councilman.political_positions
+    <%= f.input :political_position, collection: Councilman.political_positions.keys.to_a
 %> 
-    
-    
-
-    
 
        <%= f.file_field :avatar %>   
   </div>
