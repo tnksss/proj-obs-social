@@ -24,7 +24,7 @@ class ProjectKindsController < ApplicationController
 
     respond_to do |format|
       if @project_kind.save
-        format.html { redirect_to @project_kind, notice: 'Project kind was successfully created.' }
+        format.html { redirect_to @project_kind, notice: 'Tipo de projeto criado com sucesso.' }
         format.json { render :show, status: :created, location: @project_kind }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class ProjectKindsController < ApplicationController
   def update
     respond_to do |format|
       if @project_kind.update(project_kind_params)
-        format.html { redirect_to @project_kind, notice: 'Project kind was successfully updated.' }
+        format.html { redirect_to @project_kind, notice: 'Tipo de projeto atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @project_kind }
       else
         format.html { render :edit }
@@ -48,7 +48,7 @@ class ProjectKindsController < ApplicationController
   def destroy
     @project_kind.destroy
     respond_to do |format|
-      format.html { redirect_to project_kinds_url, notice: 'Project kind was successfully destroyed.' }
+      format.html { redirect_to project_kinds_url, notice: 'Tipo de projeto deletado.' }
       format.json { head :no_content }
     end
   end
