@@ -10,13 +10,17 @@ pt-BR:
         councilman:
           name: "Nome"
           nickname: "Apelido"
-          political_position: "Posição Partidária"
           political_party: "Partido Politico"
+          political_position: "Posição Partidária"
+          political_positions:
+            situation: "Situação"
+            opposition: "Oposição"
+          
         meeting:
           date: "Data"
           start_session: "Inicio da Sessão"
           end_session: "Final da Sessão"
-          note: "Notas"
+          note: "Anotações"
         project:
           meeting: "Sessão"
           councilman: "Proposta do Vereador"

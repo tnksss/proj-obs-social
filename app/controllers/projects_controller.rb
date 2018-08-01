@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, :set_meeting, :set_session_councilmen,
+  only: [:show, :edit, :update, :destroy]
 
   def index
     
@@ -7,6 +8,7 @@ class ProjectsController < ApplicationController
       @projects = Project.search(params[:search]).paginate(:page => params[:page], :per_page => 7).order(name: :asc)
     else
       @projects = Project.all.paginate(:page => params[:page], :per_page => 7)
+                         .order(name: :asc)
     end
     
   end
@@ -108,10 +110,18 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.find(params[:id])
   end
-  
+
+  def set_meeting
+    @meeting = Meeting.find(@project.meeting_id)
+  end
+
+  def set_session_councilmen
+    @session_councilmen = SessionCouncilman.find(@meeting.session_councilman_ids)
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:meeting_id, :councilman_id, :name, :description, :project_kind_id, :start_project, :end_project, :result)
+    params.require(:project).permit(:meeting_id, :councilman_id, :name, :description,
+                                    :project_kind_id, :start_project, :end_project, :result)
   end
 end

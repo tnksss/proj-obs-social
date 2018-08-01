@@ -44,12 +44,11 @@ pt-BR:
         political_positions:
           opposition: "Oposição"
           situation: "Situação"
-      session:
+      meeting:
         date: "Data"
         start_session: "Início da sessão"
         end_session: "Fim da sessão"
-        note: "Notas"
-        New Session : "Nova Sessão"
+        note: "Anotações"
       project:
         session: "Sessão"
         name: "Nome"
