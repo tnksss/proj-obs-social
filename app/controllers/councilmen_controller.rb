@@ -52,7 +52,7 @@ class CouncilmenController < ApplicationController
   def destroy
     @councilman.destroy
     respond_to do |format|
-      format.html { redirect_to councilmen_url, notice: "Councilman was successfully destroyed." }
+      format.html { redirect_to councilmen_url, notice: "Vereador removido com sucesso." }
       format.json { head :no_content }
     end
   end
