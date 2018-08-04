@@ -3,35 +3,32 @@
 <div class="box">
   <div class="box-header">
     <p>
-  <strong>Data:</strong>
-  <%= @meeting.date.strftime('%d/%m/%Y') %>
-</p>
-  
+      <strong>Data:</strong>
+      <%= @meeting.date.strftime('%d/%m/%Y') %>
+    </p>  
   </div>
 
-<div class="box-body">
-<p>
-  <strong>Início da sessão:</strong>
-  <%= @meeting.start_session.strftime('%H:%M') %>
-</p>
+  <div class="box-body">
+    <p>
+      <strong>Início da sessão:</strong>
+      <%= @meeting.start_session.strftime('%H:%M') %>
+    </p>
+    <p>
+      <strong>Término da sessão:</strong>
+      <%= @meeting.end_session.strftime('%H:%M') %>
+    </p>
+    <p>
+      <strong>Projetos: </strong>
+      <%= link_to @meeting.projects.size, meeting_projects_path(@meeting) %>
+    </p>
+    <p>
+      <strong>Anotações:</strong>
+      <%= @meeting.note %>
+    </p>
 
-<p>
-  <strong>Término da sessão:</strong>
-  <%= @meeting.end_session.strftime('%H:%M') %>
-</p>
-<p>
-  <strong>Projetos: </strong>
-  <%= link_to @meeting.projects.size, meeting_projects_path(@meeting) %>
-</p>
-
-<p>
-  <strong>Anotações:</strong>
-  <%= @meeting.note %>
-</p>
-
-<div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title text-right">Vereadores presentes</h3>
+    <div class="box box-success">
+      <div class="box-header with-border">
+<h3 class="box-title text-right">Vereadores presentes</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
