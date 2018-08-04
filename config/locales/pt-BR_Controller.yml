@@ -5,6 +5,12 @@ pt-BR:
         political_positions:
           opposition: "Oposição"
           situation: "Situação"
+      vote:
+        vote:
+          contrary: "Contrário"
+          favorable: "A favor"
+          abstent: abstenção
+      
     models:
       User:
         one: "Usuário"
@@ -70,6 +76,7 @@ pt-BR:
         arrival: "Horário de Chegada"
         leaving: "Horário de Saída"
         note: "Anotações"
+ 
 
 
 

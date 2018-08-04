@@ -36,22 +36,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  #def result
-  #  @project = Project.find(params[:project_id])
-  #  @votes = @project.votes
-#
-  #  @votes.each do |v|
-  #    case v.vote
-  #    when :favorable 
-  #      favorable++
-  #    when :contrary
-  #      constrary++
-  #    when :abstention
-  #      abstention++
-  #    else
-  #      diferent++;
-  #  end
-  #end
+  def result
+    
+  end
 
   def create
     @project = Project.new(project_params)
