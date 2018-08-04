@@ -9,7 +9,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5.1.0'
-gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -24,6 +23,7 @@ gem 'rails-i18n', '~> 5.1', '>= 5.1.1'
 #gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 gem 'i18n_rails_helpers'
+#upload image
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '~> 4.3'
 

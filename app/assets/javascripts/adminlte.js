@@ -13,9 +13,9 @@
 */
 
 // Make sure jQuery has been loaded
-document.addEventListener("turbolinks:load", function() {
-  my_func();
-})
+//document.addEventListener("turbolinks:load", function() {
+//  my_func();
+//})
 
 if (typeof jQuery === 'undefined') {
     throw new Error('AdminLTE requires jQuery')
