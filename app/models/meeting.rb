@@ -1,4 +1,7 @@
 class Meeting < ApplicationRecord
+
+  scope :search, -> (query) { where("date = ?", "%#{query}%")}
+
   has_many :projects, dependent: :destroy
 
   has_many :session_councilmen, inverse_of: :meeting
