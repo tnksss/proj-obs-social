@@ -6,7 +6,7 @@
 
     <div class="row">
       <div class="col-sm-4">
-          <%= link_to 'Novo Tipo de Projeto', new_project_kind_path, class: "btn btn-info" %>
+          <%= link_to 'Novo Tipo de Projeto', new_project_kind_path, class: "btn btn-info", title:"Cadastrar Novo Tipo de Projeto" %>
       </div>
       <div class="col-sm-4">
       
@@ -15,7 +15,7 @@
              <%= text_field_tag 'search', nil, class:"form-control", placeholder:"Digite o tipo do projeto" %>
 
               <div class="input-group-btn">
-                <%= button_tag(type: "submit", class: "btn btn-warning btn-flat") do %>
+                <%= button_tag(type: "submit", class: "btn btn-warning btn-flat", title:"Buscar Tipo de Projeto") do %>
                <i class="fa fa-search"></i>
                 <% end %>
               </div>

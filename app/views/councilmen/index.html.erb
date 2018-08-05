@@ -6,7 +6,7 @@
     
     <div class="row">
       <div class="col-sm-4">
-          <%= link_to 'Adicionar Vereador', new_councilman_path, class: "btn btn-info" %>
+          <%= link_to 'Novo Vereador', new_councilman_path, class: "btn btn-info", title:"Cadastrar Novo Vereador" %>
       </div>
       <div class="col-sm-4"> 
       
@@ -15,7 +15,7 @@
              <%= text_field_tag 'search', nil, class:"form-control", placeholder:"Digite o nome do vereador" %>
 
               <div class="input-group-btn">
-                <%= button_tag(type: "submit", class: "btn btn-warning btn-flat") do %>
+                <%= button_tag(type: "submit", class: "btn btn-warning btn-flat", title:"Buscar Vereador") do %>
                <i class="fa fa-search"></i>
                 <% end %>
               </div>
