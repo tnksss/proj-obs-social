@@ -5,7 +5,8 @@ pt-BR:
         meeting: Sessão
         project: Projeto
         project kind: Tipo do Projeto
-        user: Usuario
+        user: Usuário
+        vote: Voto
       attributes:
         councilman:
           name: "Nome"
@@ -14,8 +15,7 @@ pt-BR:
           political_position: "Posição Partidária"
           political_positions:
             situation: "Situação"
-            opposition: "Oposição"
-          
+            opposition: "Oposição"          
         meeting:
           date: "Data"
           start_session: "Inicio da Sessão"
@@ -30,6 +30,9 @@ pt-BR:
           start_project: "Inicio do Projeto"
           end_project: "Final do Projeto"
           result: "Resultado"
+          results:
+            approved: "Aprovado"
+            rejected: "Rejeitado"
         project_kind:
           kind: "Tipo de Projeto"
           description: "Descrição do Projeto"
@@ -40,3 +43,11 @@ pt-BR:
           password_confirmation: "Confirmação de senha"
           remember_me: "Lembre-me"
           current_password: "Senha Atual"
+        vote:
+          vote: "Voto"
+          votes:
+            absent: "Ausente"
+            abstention: "Abstenção"
+            contrary: "Contrário"
+            favorable: "Favorável"
+

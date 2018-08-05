@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, :set_meeting, :set_session_councilmen,
   only: [:show, :edit, :update, :destroy]
+  after_action :set_result, only: [:update_votes]
 
   def index
     
@@ -30,28 +31,10 @@ class ProjectsController < ApplicationController
   def votes
     @project = Project.find(params[:project_id])
 
-    
     Councilman.all.each do |c|
       @project.votes.find_or_create_by!(councilman_id: c.id)
     end
   end
-
-  #def result
-  #  @project = Project.find(params[:project_id])
-  #  @votes = @project.votes
-#
-  #  @votes.each do |v|
-  #    case v.vote
-  #    when :favorable 
-  #      favorable++
-  #    when :contrary
-  #      constrary++
-  #    when :abstention
-  #      abstention++
-  #    else
-  #      diferent++;
-  #  end
-  #end
 
   def create
     @project = Project.new(project_params)
@@ -93,13 +76,13 @@ class ProjectsController < ApplicationController
       flash[:error] = 'Não foi possível atualizar os dados'
     end
 
-    redirect_to action: "index"
+    redirect_to @project
   end
 
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
+      format.html { redirect_to projects_url, notice: "Pauta removida com sucesso." }
       format.json { head :no_content }
     end
   end
@@ -107,9 +90,20 @@ class ProjectsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  def set_result
+    votes = @project.votes.group(:vote).count
+    favoravel = votes['favoravel'] * 100 / votes.values.sum
+    if favoravel > 50
+      @project.approved!
+    else
+      @project.rejected!
+    end
+  end
+ 
   def set_project
     @project = Project.find(params[:id])
   end
+
 
   def set_meeting
     @meeting = Meeting.find(@project.meeting_id)

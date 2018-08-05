@@ -80,7 +80,7 @@ class MeetingsController < ApplicationController
       flash[:error] = 'Não foi possível atualizar os dados'
     end
 
-    redirect_back(fallback_location: root_path)
+    redirect_to @meeting
   end
 
   ### projetos na sessão

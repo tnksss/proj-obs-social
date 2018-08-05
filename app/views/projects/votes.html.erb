@@ -25,11 +25,9 @@
     <tr>
       <td><%= v.object.councilman.name %></td>
       
-      <%# unless v.object.present?%>
-      <td><%= v.input_field :vote, collection: Vote.votes.keys.to_a, prompt: "Informe o Voto"%></td>
-      <%#else%>
-           <td>Ausente</td>
-      <%#end%>
+      <td><%= v.input_field :vote, collection: Vote.votes.keys.to_a, prompt: "Insira o voto", class: "form-control" %></td>
+    
+</td>
     </tr>
   <% end %>
 </tbody>
@@ -37,7 +35,7 @@
 <br>
 <%= p.button :submit %>
 <% end %>
-<%= link_to 'Voltar', projects_path, class: "btn btn-warning" %>
+<%= link_to 'Voltar', :back, class: "btn btn-warning" %>
   </div>
 </div>
 </div>

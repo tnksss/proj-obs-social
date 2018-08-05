@@ -5,4 +5,10 @@ module VotesHelper
           
         vote.send(attribute)
     end
+
+
+
+    def human_attribute_votes
+        Hash[Vote.votes.map { |k,v| [k, Vote.human_attribute_name("vote.#{k}")] }]
+    end
 end

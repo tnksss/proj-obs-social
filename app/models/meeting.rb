@@ -9,6 +9,14 @@ class Meeting < ApplicationRecord
 
   validates :date, presence: true, uniqueness: true
   
+  validate :start_session, :end_session, :start_date_before_end_date
+
+  def start_date_before_end_date
+    if self.start_session > self.end_session
+      errors.add(:start_session, "Início da sessão deverá ser anterior ao final.")
+      errors.add(:end_session, "Final da sessão deverá ser posterior ao início.")
+    end
+  end
 
   def formatted_date
     date.to_time.strftime("%d/%m/%Y")

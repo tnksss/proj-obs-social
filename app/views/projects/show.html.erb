@@ -1,5 +1,6 @@
+<div class="right">
 <% breadcrumb :show_project, @project %>
-
+</div>
 <div class="box box-info">
   <div class="container">
     <div class="box-header">
@@ -29,12 +30,19 @@
 
 <p>
   <strong>Resultado:</strong>
-  <%= "Sem votos" if @project.result.nil? %>
+  <% if @project.result.nil? %>
+    Sem resultado
+  <% else%>
+    
+    <%= I18n.t(@project.result, scope: [:activerecord, :attributes, :project, :results]) %>
+  <% end%>
+
 </p>
 
 <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title text-right">Vereadores presentes</h3>
+              <h3 class="box-title"><strong>Votos do Projeto</strong></h3>
+              <%= link_to 'Editar Votos', project_votes_path(@project), class: "btn btn-warning btn-sm right" %>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -42,19 +50,20 @@
                 <tbody>
                 <tr>                  
                   <th>Vereador</th>
-                  <th style="width: 50px">Presença</th>
+                  <th>Voto</th>
                 </tr>
-                <% @session_councilmen.each do |sc| %>
+                <% @project.votes.each do |v| %>
                 
                 <tr>
-                  <td><%= sc.councilman.name %></td>
-                  <% unless sc.present? %>
-                  <td><span class="badge bg-red">NÂO</span></td>
-                  <% else %>
-                  <td><span class="badge bg-green">SIM</span></td>
-                  <%end%>
+                  <td><%= v.councilman.name %></td>
+                  <% unless v.vote.nil? %>
+                  <td><%= v.vote %></td>
+                  <% else %>            
+                  <td>ausente</td>   
+                  <% end %>
+   
                 </tr>
-                <%end%>
+<% end %>
                 
               </tbody></table>
             </div>
@@ -71,7 +80,7 @@
 <br>
 
 <%= link_to 'Editar', edit_project_path(@project), class: "btn btn-warning" %> |
-<%= link_to 'Voltar', projects_path, class: "btn btn-info" %>
+<%= link_to 'Voltar', :back, class: "btn btn-info" %>
 <br><br>
 </div>
 </div>

@@ -48,6 +48,9 @@
  .layout-boxed {
    background: url('../img/boxed-bg.jpg') repeat fixed;
  }
+ .right {
+   float: right;
+ }
  /*
   * Content Wrapper - contains the main content
   */
@@ -232,6 +235,7 @@
  .main-header .navbar-right {
    float: right;
  }
+
  @media (max-width: 991px) {
    .main-header .navbar-custom-menu a,
    .main-header .navbar-right a {
