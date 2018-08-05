@@ -30,7 +30,13 @@
 
 <p>
   <strong>Resultado:</strong>
-  <%= "Sem votos" if @project.result.nil? %>
+  <% if @project.result.nil? %>
+    Sem resultado
+  <% else%>
+    
+    <%= I18n.t(@project.result, scope: [:activerecord, :attributes, :project, :results]) %>
+  <% end%>
+
 </p>
 
 <div class="box box-success">

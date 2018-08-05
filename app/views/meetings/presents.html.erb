@@ -29,21 +29,21 @@
       
       <tr>
         <td><%= sc.object.councilman.name %></td>
-        <td><%= sc.input_field :present, as: :boolean %></td>
+        <td><%= sc.input_field :present, as: :boolean%></td>
         
      
-          <td><%=sc.input_field :arrival   %></td>
+          <td><%=sc.input_field :arrival%></td>
           <td><%=sc.input_field :leaving %></td>
      
 
-        <td><%= sc.input_field :note %></td>
+        <td><%= sc.input_field :note, class: "form-control" %></td>
       </tr>
     <% end %>
 </tbody>
   </table>
   <br>
   <%= s.button :submit %>
-  <%= link_to 'Voltar', meetings_path, class: "btn btn-warning" %>
+  <%= link_to 'Voltar', :back, class: "btn btn-warning" %>
 <% end %>
 
     </div>

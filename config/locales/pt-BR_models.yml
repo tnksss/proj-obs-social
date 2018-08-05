@@ -30,6 +30,9 @@ pt-BR:
           start_project: "Inicio do Projeto"
           end_project: "Final do Projeto"
           result: "Resultado"
+          results:
+            approved: "Aprovado"
+            rejected: "Rejeitado"
         project_kind:
           kind: "Tipo de Projeto"
           description: "Descrição do Projeto"
