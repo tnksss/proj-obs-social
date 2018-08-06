@@ -2,8 +2,8 @@ class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   def new
-    @project = Project.find(params[:project_id])    
-    @councilmen = Councilman.all
+    @project = Project.find(params[:project_id])
+    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 5).order(name: :asc)
     @vote = Vote.new
   end
 

@@ -8,7 +8,7 @@ class SessionCouncilmenController < ApplicationController
 
   def new    
     @meeting = Meeting.find(params[:meeting_id])    
-    @councilmen = Councilman.all
+    @councilmen = Councilman.all.paginate(:page => params[:page], :per_page => 5).order(name: :asc)
     @session_councilman = SessionCouncilman.new
   end
 

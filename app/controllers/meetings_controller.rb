@@ -7,8 +7,7 @@ class MeetingsController < ApplicationController
     if params[:search]
       @meetings = Meeting.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
     else
-      @meetings = Meeting.all.paginate(:page => params[:page], :per_page => 5)
-      .order(date: :desc)
+      @meetings = Meeting.all.paginate(:page => params[:page], :per_page => 5).order(date: :desc)
     end
 
   end

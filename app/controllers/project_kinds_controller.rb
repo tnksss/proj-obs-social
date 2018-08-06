@@ -46,10 +46,15 @@ class ProjectKindsController < ApplicationController
   end
 
   def destroy
-    @project_kind.destroy
-    respond_to do |format|
-      format.html { redirect_to project_kinds_url, notice: 'Tipo de projeto deletado.' }
-      format.json { head :no_content }
+    if @project_kind.projects.any?
+      flash[:error] = "Erro ao deletar tipo de projeto, voce deve apagar os projetos agregados a este tipo de projeto"
+      redirect_to @project_kind
+    else
+      @project_kind.destroy
+      respond_to do |format|
+        format.html { redirect_to project_kinds_url, notice: 'Tipo de projeto foi deletado com sucesso.' }
+        format.json { head :no_content }
+      end
     end
   end
 
