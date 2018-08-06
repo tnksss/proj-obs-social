@@ -6,7 +6,7 @@
     <div class="box-header">
 
 
- </div>
+  </div>
 <p>
   <strong>Sessão:</strong>
   <%= @project.meeting.date.strftime('%d/%m/%Y') %>
@@ -46,7 +46,7 @@
 <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title"><strong>Votos do Projeto</strong></h3>
-              <%= link_to 'Editar Votos', project_votes_path(@project), class: "btn btn-warning btn-sm right" %>
+              <%= link_to 'Votar', project_votes_path(@project), class: "btn btn-success btn-md right" %>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

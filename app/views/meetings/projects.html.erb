@@ -1,7 +1,7 @@
 
 <div class="box">
 <div class="box-header">
-<h1>Projetos</h1>
+<h1>Projetos da Sessão: <%= @meeting.date.to_time.strftime('%d/%m/%Y')%></h1>
 <%= link_to 'Novo Projeto', meeting_new_path(@meeting), class: "btn btn-info", title:"Cadastrar novo Projeto" %>
 </div>
 <div class="box-body table-responsive">
@@ -27,8 +27,8 @@
         <td><%= truncate(project.description, length: 50) %></td>
         <td><%= link_to project.councilman.name, project.councilman %></td>
         <td><%= project.project_kind.kind %></td>
-        
-        <td><%= project.result %></td>
+        <td><%= I18n.t(project.result, scope: [:activerecord, :attributes, :project, :results]) %></td>
+
         <td><%= link_to '', project_votes_path(project), class: "btn btn-success fa fa-plus", title:"Votar Projeto" %>
         <td><%= link_to '', project, class: "btn btn-info fa fa-search", title:"Buscar Projeto", title:"Visualizar Projeto" %></td>
         <td><%= link_to '', edit_project_path(project), class: "btn btn-warning fa fa-edit", title:"Editar Projeto"  %></td>

@@ -40,7 +40,7 @@
       <th>Tipo</th>
       <th>Sessão</th>      
       <th>Resultado</th>
-      <th colspan="4">Ações</th>
+      <th colspan="3">Ações</th>
     </tr>
   </thead>
 
@@ -58,7 +58,7 @@
         <% else %>
         <td><%= I18n.t(project.result, scope: [:activerecord, :attributes, :project, :results]) %></td>
         <% end%>
-        <td><%= link_to '', project_votes_path(project), class: "btn btn-success fa fa-plus", title:"Votar Projeto" %>
+
         <td><%= link_to '', project, class: "btn btn-info fa fa-search", title:"Visualizar Projeto"  %></td>
         <td><%= link_to '', edit_project_path(project), class: "btn btn-warning fa fa-edit", title:"Editar Projeto"   %></td>
         <td><%= link_to '', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger fa fa-remove", title:"Remover Projeto"   %></td>

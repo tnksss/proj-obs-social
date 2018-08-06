@@ -36,7 +36,7 @@
           <th>Fim sessão</th>
           <th>Notas</th>
           <th>Projetos</th>
-          <th colspan="4">Ações</th>
+          <th colspan="3">Ações</th>
         </tr>
       </thead>
 
@@ -52,7 +52,6 @@
 
             
             <td><%= link_to '', meeting, class: "btn btn-warning fa fa-search", title: "Visualizar Sessão" %></td>
-            <td><%= link_to '', meeting_presents_path(meeting), class: "btn btn-success fa fa-plus", title: "Vereadores Presentes na Sessão" %>
             <td><%= link_to '', edit_meeting_path(meeting.id), class:"btn btn-info fa fa-edit", title: "Editar Sessão"%></td>
             <td><%= link_to '', meeting, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger fa fa-remove" , title: "Remover Sessão"%></td>
           </tr>
