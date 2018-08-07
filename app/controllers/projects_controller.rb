@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
       @projects = Project.all.paginate(:page => params[:page], :per_page => 5)
                          .order(name: :asc)
     end
+    
   end
 
   def show
@@ -37,24 +38,32 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+
+    respond_to do |format|
       if @project.save
         flash[:success] = "Pauta criada com sucesso!"
-        redirect_to @project
+        format.html { redirect_to @project }
+        format.json { render :show, status: :created, location: @project }
       else
         flash[:error] = "Existem dados incorretos! Por favor verifique."
-        render :new
+        format.html { render :new }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
-    if @project.update(project_params)
-      flash[:success] = "Pauta atualizada com sucesso!"
-      redirect_to @project
-    else
-      flash[:error] = "Existem dados incorretos! Por favor verifique."
-      render :edit
-    end    
+    respond_to do |format|
+      if @project.update(project_params)
+        flash[:success] = "Pauta atualizada com sucesso!"
+        format.html { redirect_to @project }
+        format.json { render :show, status: :ok, location: @project }
+      else
+        flash[:error] = "Existem dados incorretos! Por favor verifique."
+        format.html { render :edit }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update_votes
@@ -72,7 +81,10 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to projects_url, notice: "Pauta removida com sucesso."
+    respond_to do |format|
+      format.html { redirect_to projects_url, notice: "Pauta removida com sucesso." }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -101,8 +113,9 @@ class ProjectsController < ApplicationController
     @session_councilmen = SessionCouncilman.find(@meeting.session_councilman_ids)
   end
 
+  # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
     params.require(:project).permit(:meeting_id, :councilman_id, :name, :description,
                                     :project_kind_id, :start_project, :end_project, :result)
   end
-
+end
