@@ -31,7 +31,8 @@ class ProjectsController < ApplicationController
   def votes
     @project = Project.find(params[:project_id])
 
-    Councilman.all.each do |c|
+    # Councilman.all.each do |c|
+    Councilman.joins(:session_councilmen).where(:session_councilmen => { meeting_id: @project.meeting_id, present: true}).all.each do |c|
       @project.votes.find_or_create_by!(councilman_id: c.id)
     end
   end
