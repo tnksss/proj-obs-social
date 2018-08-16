@@ -32,7 +32,9 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:project_id])
 
     # Councilman.all.each do |c|
-    Councilman.joins(:session_councilmen).where(:session_councilmen => { meeting_id: @project.meeting_id, present: true}).all.each do |c|
+    Councilman.joins(:session_councilmen).
+    where(:session_councilmen => { meeting_id: @project.meeting_id, present: true})
+    .all.each do |c|
       @project.votes.find_or_create_by!(councilman_id: c.id)
     end
   end
@@ -88,19 +90,33 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def quorum
+    presentes = Councilman.joins(:session_councilmen)
+          .where(:session_councilmen => {meeting_id: @project.meeting_id, present: true}).count
+    
+    quorum = presentes * 100 / Councilman.all.size
+    return quorum
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_result
-    votes = @project.votes.group(:vote).count
-    favoravel = votes['favoravel'] * 100 / votes.values.sum
-    if favoravel > 50
-      @project.approved!
+    if (quorum < 66)
+      @project.postponed!
     else
-      @project.rejected!
+      votes = @project.votes.group(:vote).count
+      favoravel = votes['favoravel'] * 100 / votes.values.sum
+      if favoravel > 50
+        @project.approved!
+      else
+        @project.rejected!
+      end
     end
   end
- 
+
+  
+  
   def set_project
     @project = Project.find(params[:id])
   end

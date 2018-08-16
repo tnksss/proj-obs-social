@@ -50,11 +50,15 @@ class CouncilmenController < ApplicationController
   end
 
   def destroy
-    @councilman.destroy
-    respond_to do |format|
-      format.html { redirect_to councilmen_url, notice: "Vereador removido com sucesso." }
-      format.json { head :no_content }
+    if @councilman.vote.any?
+      flash[:error] = "Erro ao deletar vereador, o mesmo possui votos contabilizados."
+      redirect_to @councilman
+    else
+      @councilman.destroy
+    
+    redirect_to councilmen_url, notice: "Vereador removido com sucesso."
     end
+    
   end
 
   def projects

@@ -191,4 +191,8 @@ end
     kind: "Turismo",
     description: "Alterações, revogações e inclusões de dispositivos em leis previamente aprovadas.",
   }])
+  ProjectKind.create([{
+    kind: "Outro",
+    description: "Atividades diversas.",
+  }])
   
